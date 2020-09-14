@@ -1,0 +1,7 @@
+{
+  "name": "BlockID",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
