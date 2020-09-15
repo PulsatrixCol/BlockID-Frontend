@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Configuración
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,17 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Configuración</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+<ion-col size-lg="4" size-md="3" size-sm="3" size="0" size-xs="3">
+  <ion-row>
+    <ion-card>
+      <ion-item href="#" class="ion-activated" color="danger" button (click)="logout()">
+        <ion-icon name="log-out-sharp" slot="start"></ion-icon>
+        <ion-label>Cerrar sesión</ion-label>
+      </ion-item>
+    </ion-card>
+  </ion-row>
+</ion-col>
 </ion-content>

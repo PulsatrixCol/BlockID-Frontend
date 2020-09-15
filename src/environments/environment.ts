@@ -6,11 +6,13 @@ export const environment = {
   production: false
 };
 
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+//url del api en desarrollo
+//export const API_URL = 'https://dataengine.wif-id.co/api'
+export const API_URL = 'http://localhost:3000/api'
+
+export const SOCKET_URL = 'https://.wif-id.co'
+
+export const AUTH = {
+  token: 'auth_token',
+  tipo: 'tipo_usuario'
+}
