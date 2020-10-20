@@ -30,6 +30,11 @@ const routes: Routes = [
     path: 'superman',
     loadChildren: () => import('./pages/Auth/superman/superman.module').then( m => m.SupermanPageModule),
     canActivate: [AuthUserGuard]
+  },
+  {
+    path: 'sendmodal',
+    loadChildren: () => import('./pages/Auth/modales/sendmodal/sendmodal.module').then( m => m.SendmodalPageModule),
+    canActivate: [AuthUserGuard]
   }
 ];
 @NgModule({

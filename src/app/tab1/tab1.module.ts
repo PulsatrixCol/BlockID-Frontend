@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 import { Tab1PageRoutingModule } from './tab1-routing.module';
-import {NuevaIdentidadComponent} from '../componentes/nueva-identidad/nueva-identidad.component';
-import {BilleteraComponent} from '../componentes/billetera/billetera.component';
+import { ComponentesModule } from '../componentes/componentes.module';
+
 
 @NgModule({
   imports: [
@@ -14,8 +14,9 @@ import {BilleteraComponent} from '../componentes/billetera/billetera.component';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    Tab1PageRoutingModule
+    Tab1PageRoutingModule,
+    ComponentesModule
   ],
-  declarations: [Tab1Page,NuevaIdentidadComponent,BilleteraComponent]
+  declarations: [Tab1Page]
 })
 export class Tab1PageModule {}

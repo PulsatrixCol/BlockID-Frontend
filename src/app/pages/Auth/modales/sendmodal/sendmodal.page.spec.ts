@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { BilleteraComponent } from './billetera.component';
+import { SendmodalPage } from './sendmodal.page';
 
-describe('BilleteraComponent', () => {
-  let component: BilleteraComponent;
-  let fixture: ComponentFixture<BilleteraComponent>;
+describe('SendmodalPage', () => {
+  let component: SendmodalPage;
+  let fixture: ComponentFixture<SendmodalPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BilleteraComponent ],
+      declarations: [ SendmodalPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BilleteraComponent);
+    fixture = TestBed.createComponent(SendmodalPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
