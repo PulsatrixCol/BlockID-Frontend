@@ -18,7 +18,7 @@ export class NuevaIdentidadComponent implements OnInit {
   ngOnInit() {}
 
   newKeys(){
-    this.newkeypair.newkeypair().then(res => {
+    this.newkeypair.newkeypair(localStorage.getItem('userId')).then(res => {
       this.llave=res['address']
       this.pubkey=localStorage.getItem('pubkey')
       this.tengoLlaves = this.newkeypair.doWeHaveKeys()

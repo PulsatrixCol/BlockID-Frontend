@@ -19,9 +19,9 @@ export class NewkeypairService {
         })
       }
      }
-     newkeypair(){
+     newkeypair(userId: any){
       return new Promise(resolve =>{
-        this.http.get(API_URL + '/new_wallet'+'?userId=38bdf240-fa0e-11ea-9973-790c849ef6c4',this.httpOptions).subscribe(res => {
+        this.http.get(API_URL + '/new_wallet'+'?userId='+userId,this.httpOptions).subscribe(res => {
           localStorage.setItem('address',res['address'])
           localStorage.setItem('privkey',res['privkey'])
           localStorage.setItem('pubkey',res['pubkey'])
