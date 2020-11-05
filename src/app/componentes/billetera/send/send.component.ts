@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {BlockchainService} from '../../../services/blockchain.service'
+import {BlockchainService} from '../../../services/blockchain.service';
+import { NavController} from '@ionic/angular'
 
 @Component({
   selector: 'app-send',
@@ -7,24 +8,39 @@ import {BlockchainService} from '../../../services/blockchain.service'
   styleUrls: ['./send.component.scss'],
 })
 export class SendComponent implements OnInit {
-  public nombre: string
+  public destino: string
   public address: string
-  public username: string
-  public balance:  {}
-  public tengoLlaves=false
+  public assetType: string
+  public privkey: string
+  public balance: any
+  public qty: string
 
-  constructor(private blockchain:BlockchainService) {
-    this.balanceBootstrap();
+  constructor(private blockchain:BlockchainService,
+    private navCtrl: NavController) {
+    
     
    }
 
    private async balanceBootstrap() {
     if(this.address != null){
       this.balance =  await this.blockchain.getBalance(this.address)
-      console.log(this.balance)
+      //console.log(this.balance)
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.address = localStorage.getItem('address')
+    this.balanceBootstrap();
+  }
 
+  sendAsset()
+  {
+    //Cheat para poder enviar moneda nativa
+    if(this.assetType == undefined){
+      this.assetType="\"\""
+    }
+    this.blockchain.sendRaw(this.destino,parseFloat(this.qty),this.assetType)
+    this.navCtrl.navigateRoot('tabs');
+  }
+  
 }

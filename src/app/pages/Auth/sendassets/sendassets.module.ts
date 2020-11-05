@@ -3,20 +3,19 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-
-import { SupermanPageRoutingModule } from './superman-routing.module';
-
-import { SupermanPage } from './superman.page';
 import { ComponentesModule } from '../../../componentes/componentes.module'
+import { SendassetsPageRoutingModule } from './sendassets-routing.module';
+
+import { SendassetsPage } from './sendassets.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SupermanPageRoutingModule,
+    SendassetsPageRoutingModule,
     ComponentesModule
   ],
-  declarations: [SupermanPage]
+  declarations: [SendassetsPage]
 })
-export class SupermanPageModule {}
+export class SendassetsPageModule {}

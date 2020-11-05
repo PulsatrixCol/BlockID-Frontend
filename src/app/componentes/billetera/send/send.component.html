@@ -1,14 +1,34 @@
-<ion-header translucent>
-  <ion-toolbar>
-      <ion-searchbar style="padding-top: 10px;" mode="ios" (ionInput)="buscar($event)" placeholder="Buscar"></ion-searchbar>
-  </ion-toolbar>
-</ion-header>
 <ion-content>
-  <ion-list>
-    <ion-item  *ngFor="let item of balance">
-      <ion-icon name="wallet" slot="start"></ion-icon>
-      <ion-label *ngIf='item.assetref == ""'>Balance BlockID token: {{item.qty}}</ion-label>
-      <ion-label *ngIf='item.assetref != ""'>Balance {{item.assetref}}: {{item.qty}}</ion-label>
-    </ion-item>
-  </ion-list>
+<form  (ngSubmit)="sendAsset(form)" >
+  <ion-row>
+    <ion-col size-lg="12" size-md="12" size-sm="12" size="12" size-xs="12">
+      <ion-list>
+        <ion-list-header>
+        </ion-list-header>
+        <ion-item color="light">
+              <ion-label>
+                <strong>Selecciona el activo a enviar</strong>
+              </ion-label>
+          <ion-select  name="selectAsset" #selectAsset="ngModel"  placeholder="Selecciona tu moneda" [(ngModel)]="assetType" interface="action-sheet">
+            <ion-select-option *ngFor="let item of balance" [value]="item.assetref"> 
+              <ion-label *ngIf='item.assetref == ""'>BlockID Token: {{item.qty}}</ion-label>
+              <ion-label *ngIf='item.assetref != ""'>{{item.name}}: {{item.qty}}</ion-label>
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item class="item-input" color="light">
+          <ion-input name="cantidad" #cantidad="ngModel" [(ngModel)]="qty" placeholder="Cantidad" type="number"></ion-input>
+        </ion-item>
+        <ion-item class="item-input" color="light">
+          <ion-input name="addressto" #addressto="ngModel" [(ngModel)]="destino" placeholder="Destinatario"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-button shape="round"  (click)="sendAsset()" style="font-size: large; font-weight: bold;" expand="block">
+            <ion-icon name="rocket"></ion-icon> Enviar
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</form>
 </ion-content>

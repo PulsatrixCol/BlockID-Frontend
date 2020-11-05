@@ -27,7 +27,6 @@ export class BilleteraComponent implements OnInit {
     this.address = localStorage.getItem('address')
     //console.log(this.address)
     this.username = localStorage.getItem('username')
-    this.balanceBootstrap()
    }
 
   private async balanceBootstrap() {
@@ -39,8 +38,15 @@ export class BilleteraComponent implements OnInit {
 
   public async send(){
     //this.modal.presentModal()
-    //this.navCtrl.navigateRoot('sendmodal');
+    this.navCtrl.navigateRoot('sendassets');
   }
-  ngOnInit() {}
+
+  public refreshBalance(){
+    this.balanceBootstrap()
+  }
+
+  ngOnInit() {
+    this.balanceBootstrap()
+  }
 
 }

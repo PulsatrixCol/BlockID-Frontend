@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-item slot="start">
+          <ion-title>
+            {{pageName}}
+           </ion-title>
+      </ion-item>
+      <ion-buttons slot='end'>
+          <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-item lines="none">
+          <div text-center>
+              <img (click)="goLanding()" src="assets/images/icono.png" class="img_title" height="50px" />
+          </div>
+      </ion-item>
+
+  </ion-toolbar>
+</ion-header>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController} from '@ionic/angular'
 
 @Component({
   selector: 'app-superman',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupermanPage implements OnInit {
 
-  constructor() { }
+
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
+  }
+
+  createCandidate() {
+    this.navCtrl.navigateRoot('create-candidate');
   }
 
 }
