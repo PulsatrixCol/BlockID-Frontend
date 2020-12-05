@@ -1,20 +1,4 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot='start'>
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-    <ion-row>
-      <ion-col size="4">
-
-      </ion-col>
-      <ion-col size="4">
-        <ion-title>Crear candidato</ion-title>
-
-      </ion-col>
-      <img src="assets/images/icono.png" class="img_title" height="50px"/>
-    </ion-row>
-  </ion-toolbar>
-</ion-header>
+<app-header [pageName]="pageName"></app-header>
 
 <ion-content>
   <form  (ngSubmit)="crearCandidato(form)" >
@@ -29,7 +13,7 @@
           </ion-item>
           <ion-item>
             <ion-button shape="round"  (click)="crearCandidato()" style="font-size: large; font-weight: bold;" expand="block">
-              <ion-icon name="body-outline"></ion-icon>Enviar
+              <ion-icon name="body-outline"></ion-icon>Crear
             </ion-button>
           </ion-item>
         </ion-list>

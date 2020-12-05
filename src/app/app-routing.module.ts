@@ -38,6 +38,10 @@ const routes: Routes = [
   {
     path: 'create-candidate',
     loadChildren: () => import('./pages/Auth/superman/create-candidate/create-candidate.module').then( m => m.CreateCandidatePageModule)
+  },
+  {
+    path: 'create-entity',
+    loadChildren: () => import('./pages/Auth/superman/create-entity/create-entity.module').then( m => m.CreateEntityPageModule)
   }
 ];
 @NgModule({

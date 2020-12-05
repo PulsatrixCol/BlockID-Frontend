@@ -75,6 +75,7 @@ export class BlockchainService {
 
       /**
        * Crea una nuevo candidato a elecciones
+       * OJO, DEBE RECIBIR MAS COSAS
        * @param nombre 
        * @param descrip 
        */
@@ -83,6 +84,24 @@ export class BlockchainService {
         return new Promise(resolve =>{
           this.http.post(API_URL + '/createCandidate',body,this.httpOptions).subscribe(res => {
             //console.log(res)
+            resolve(res)
+          }, err=> {
+            this.toastService.dangerToast(err.mensaje)
+            console.log(err)
+          })
+        })
+      }
+      createEntity(
+        nombre: string, 
+        notas: string, 
+        sitio_web: string,
+        NIT: string,
+        ){
+        const body = {nombre,notas,sitio_web,NIT}
+        return new Promise(resolve =>{
+          this.http.post(API_URL + '/createInstitucion',body,this.httpOptions).subscribe(res => {
+            //console.log(res)
+            this.toastService.successToast("Institución creada satisfactoriamente")
             resolve(res)
           }, err=> {
             this.toastService.dangerToast(err.mensaje)

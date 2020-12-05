@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CreateCandidatePageRoutingModule } from './create-candidate-routing.module';
+import { CreateEntityPageRoutingModule } from './create-entity-routing.module';
 
-import { CreateCandidatePage } from './create-candidate.page';
+import { CreateEntityPage } from './create-entity.page';
 import { ComponentesModule } from '../../../../componentes/componentes.module'
 
 @NgModule({
@@ -14,9 +14,9 @@ import { ComponentesModule } from '../../../../componentes/componentes.module'
     CommonModule,
     FormsModule,
     IonicModule,
-    CreateCandidatePageRoutingModule,
+    CreateEntityPageRoutingModule,
     ComponentesModule
   ],
-  declarations: [CreateCandidatePage]
+  declarations: [CreateEntityPage]
 })
-export class CreateCandidatePageModule {}
+export class CreateEntityPageModule {}

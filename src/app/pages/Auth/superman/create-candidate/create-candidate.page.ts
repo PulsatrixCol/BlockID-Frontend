@@ -10,10 +10,11 @@ import { NavController} from '@ionic/angular'
 export class CreateCandidatePage implements OnInit {
   public nombre: string
   public descrip: string
-
+  public pageName: string
   constructor(private blockchain:BlockchainService,private navCtrl: NavController) { }
 
   ngOnInit() {
+    this.pageName="Crear Candidato"
   }
 
   crearCandidato(){
