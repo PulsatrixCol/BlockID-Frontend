@@ -5,25 +5,38 @@
     <ion-col size-lg="6">
       <ion-card>
         <ion-card-header>
-          <ion-card-title>Crea un nuevo candidato</ion-card-title>
-          <ion-card-subtitle>Crear candidatos</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-button (click)="createCandidate()"><ion-icon name="rocket"></ion-icon>Crear Candidatos</ion-button>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-    <ion-col size-lg="6">
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Crear una nueva entidad</ion-card-title>
-          <ion-card-subtitle>Crear una entidad habilitada para llevar a cabo elecciones dentro de la plataforma</ion-card-subtitle>
+          <ion-card-title>Crear una nueva institucion</ion-card-title>
+          <ion-card-subtitle>Crear una institucion habilitada para llevar a cabo elecciones dentro de la plataforma</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
           <ion-button (click)="createEntity()"><ion-icon name="business-outline"></ion-icon> Crear Entidad</ion-button>
         </ion-card-content>
       </ion-card>
     </ion-col>
+    <ion-col size-lg="6">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Crear una nueva elección</ion-card-title>
+          <ion-card-subtitle>Crear elecciones, aquí adentro se debe poner un modal para agregar los candidatos.</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-button (click)="createElection()"><ion-icon name="rocket"></ion-icon>Crear elecciones</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+        <ion-col size-lg="6">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Crea un nuevo candidato</ion-card-title>
+              <ion-card-subtitle>Crear candidatos</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-button (click)="createCandidate()"><ion-icon name="rocket"></ion-icon>Crear Candidatos</ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
   </ion-row>
 </ion-content>
 

@@ -42,6 +42,10 @@ const routes: Routes = [
   {
     path: 'create-entity',
     loadChildren: () => import('./pages/Auth/superman/create-entity/create-entity.module').then( m => m.CreateEntityPageModule)
+  },
+  {
+    path: 'create-election',
+    loadChildren: () => import('./pages/Auth/superman/create-election/create-election.module').then( m => m.CreateElectionPageModule)
   }
 ];
 @NgModule({

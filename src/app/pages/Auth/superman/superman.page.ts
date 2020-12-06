@@ -22,4 +22,8 @@ export class SupermanPage implements OnInit {
   createEntity(){
     this.navCtrl.navigateRoot('create-entity');
   }
+
+  createElection(){
+    this.navCtrl.navigateRoot('create-election');
+  }
 }

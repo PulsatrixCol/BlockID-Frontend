@@ -6,13 +6,16 @@
       <ion-col size-lg="12" size-md="12" size-sm="12" size="12" size-xs="12">
         <ion-list>
           <ion-item class="item-input" color="light">
-            <ion-input name="nombreInstitucion" #NombreInstitucion="ngModel" [(ngModel)]="nombre" placeholder="Nombre de la institucion"></ion-input>
+            <ion-input name="nombreInstitucion" #NombreInstitucion="ngModel" [(ngModel)]="nombre" placeholder="Nombre de la intitución"></ion-input>
           </ion-item>
           <ion-item class="item-input" color="light">
-            <ion-input name="NIT_FRONT" #NIT_FRONT="ngModel" [(ngModel)]="NIT" placeholder="Ingrese el NIT de la institución"></ion-input>
+            <ion-input  name="NIT_FRONT" #NIT_FRONT="ngModel" [(ngModel)]="NIT" placeholder="Ingrese el NIT de la institución"></ion-input>
           </ion-item>
           <ion-item class="item-input" color="light">
-            <ion-input name="sitioweb_FRONT" #sitioweb_FRONT="ngModel" [(ngModel)]="sitio_web" placeholder="Ingrese el sitio web de la institucion"></ion-input>
+            <ion-input name="sitioweb_FRONT" #sitioweb_FRONT="ngModel" [(ngModel)]="sitio_web" placeholder="Ingrese el sitio web de la intitución"></ion-input>
+          </ion-item>
+          <ion-item class="item-input" color="light">
+            <ion-input type="email" name="email_FRONT" #email_FRONT="ngModel" [(ngModel)]="email" placeholder="Ingrese el email de la intitución"></ion-input>
           </ion-item>
           <ion-item class="item-input" color="light">
             <ion-input name="notas_front" #notas_front="ngModel" [(ngModel)]="notas" placeholder="Ingrese notas adionales"></ion-input>
@@ -26,4 +29,7 @@
       </ion-col>
     </ion-row>
   </form>
+<ion-row class="">
+  <app-lista-elementos *ngIf="showTabla" tipoTabla="institutions_list" ></app-lista-elementos>
+</ion-row>
 </ion-content>

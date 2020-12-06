@@ -91,13 +91,15 @@ export class BlockchainService {
           })
         })
       }
+      
       createEntity(
         nombre: string, 
         notas: string, 
         sitio_web: string,
         NIT: string,
+        email: string
         ){
-        const body = {nombre,notas,sitio_web,NIT}
+        const body = {nombre,notas,sitio_web,NIT,email}
         return new Promise(resolve =>{
           this.http.post(API_URL + '/createInstitucion',body,this.httpOptions).subscribe(res => {
             //console.log(res)

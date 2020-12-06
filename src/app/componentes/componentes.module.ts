@@ -7,6 +7,7 @@ import {HeaderComponent} from './header/header.component'
 import { QRCodeModule } from 'angularx-qrcode';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
+import { ListaElementosComponent } from './lista-elementos/lista-elementos.component'
 
 
 
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     NuevaIdentidadComponent,
     BilleteraComponent,
     SendComponent,
-    HeaderComponent],
+    HeaderComponent,
+    ListaElementosComponent],
   imports: [
     CommonModule,
     QRCodeModule,
@@ -26,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     NuevaIdentidadComponent,
     BilleteraComponent,
     SendComponent,
-    HeaderComponent
+    HeaderComponent,
+    ListaElementosComponent
   ]
 })
 export class ComponentesModule { }
