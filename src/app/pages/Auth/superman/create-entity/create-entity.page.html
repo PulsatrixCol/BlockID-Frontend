@@ -1,27 +1,69 @@
 <app-header [pageName]="pageName"></app-header>
 
 <ion-content>
-  <form  (ngSubmit)="crearCandidato(form)" >
+  <form  (ngSubmit)="crearCandidato(form)">
     <ion-row>
       <ion-col size-lg="12" size-md="12" size-sm="12" size="12" size-xs="12">
         <ion-list>
           <ion-item class="item-input" color="light">
-            <ion-input name="nombreInstitucion" #NombreInstitucion="ngModel" [(ngModel)]="nombre" placeholder="Nombre de la intitución"></ion-input>
+            <ion-input id="nombreInstitucion" name="nombreInstitucion" 
+                        #NombreInstitucion="ngModel" [(ngModel)]="nombre"
+                        
+                        required minlength="3" 
+
+                        placeholder="Nombre de la intitución">
+                <div *ngIf="NombreInstitucion.invalid && (NombreInstitucion.dirty || NombreInstitucion.touched)"
+                    class="alert alert-danger">
+                  <div *ngIf="NombreInstitucion.errors.required">
+                    El nombre de la institución es obligatorio<br> 
+                  </div>
+                  <div *ngIf="NombreInstitucion.errors.minlength">
+                    El nombre de la institución debe ser superior a 3 caracteres
+                  </div>
+                  <div *ngIf="NombreInstitucion.errors.forbiddenName">
+                    Name cannot be Bob.
+                  </div>
+                </div>
+            </ion-input>
           </ion-item>
           <ion-item class="item-input" color="light">
-            <ion-input  name="NIT_FRONT" #NIT_FRONT="ngModel" [(ngModel)]="NIT" placeholder="Ingrese el NIT de la institución"></ion-input>
+            <ion-input  name="NIT_FRONT" #NIT_FRONT="ngModel" 
+                        [(ngModel)]="NIT" 
+                        placeholder="Ingrese el NIT de la institución"
+                        required minlength="7" 
+                        pattern  ="\d*-\d">
+              <div *ngIf="NIT_FRONT.invalid && (NIT_FRONT.dirty || NIT_FRONT.touched)"
+              class="alert alert-danger">
+                  <div *ngIf="NIT_FRONT.errors.required">
+                    El NIT de la institución es obligatorio<br> 
+                  </div>
+                  <div *ngIf="NIT_FRONT.errors.pattern">
+                    El NIT debe ser de la forma 0000000000-1 
+                  </div>  
+              </div>
+            </ion-input>
           </ion-item>
           <ion-item class="item-input" color="light">
             <ion-input name="sitioweb_FRONT" #sitioweb_FRONT="ngModel" [(ngModel)]="sitio_web" placeholder="Ingrese el sitio web de la intitución"></ion-input>
           </ion-item>
           <ion-item class="item-input" color="light">
-            <ion-input type="email" name="email_FRONT" #email_FRONT="ngModel" [(ngModel)]="email" placeholder="Ingrese el email de la intitución"></ion-input>
+            <ion-input type="email" name="email_FRONT" #email_FRONT="ngModel" [(ngModel)]="email" placeholder="Ingrese el email de la institución">
+              <div *ngIf="email_FRONT.invalid && (email_FRONT.dirty || email_FRONT.touched)"
+              class="alert alert-danger">
+                  <div *ngIf="email_FRONT.errors.required">
+                    El email es obligatorio
+                  </div>
+                  <div *ngIf="email_FRONT.errors.email">
+                    Ingrese un email válido COMO VALIDO EL EMAIL? ---> https://angular.io/api/forms/Validators#email
+                  </div>  
+              </div>
+            </ion-input>
           </ion-item>
           <ion-item class="item-input" color="light">
             <ion-input name="notas_front" #notas_front="ngModel" [(ngModel)]="notas" placeholder="Ingrese notas adionales"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-button shape="round"  (click)="crearEntity()" style="font-size: large; font-weight: bold;" expand="block">
+            <ion-button shape="round"  (click)="crearEntity()" style="font-size: large; font-weight: bold;" expand="block" [disabled]="false">
               <ion-icon name="business-outline"></ion-icon> Crear
             </ion-button>
           </ion-item>

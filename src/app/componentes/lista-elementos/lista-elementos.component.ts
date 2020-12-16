@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BackendService } from '../../services/backend.service'
+import {ToastService } from '../../services/toast.service'
 
 @Component({
   selector: 'app-lista-elementos',
@@ -13,12 +14,12 @@ export class ListaElementosComponent implements OnInit {
   registros: any[]
 
   constructor(
-    private backendService: BackendService
+    private backendService: BackendService,
+    private toastService: ToastService
   ) { }
 
   ngOnInit() {
     this.backendService.getInstitutionsList().then((res:any[])  => {
-      console.log(res['Res'])
       this.registros = res['Res']
     })
   }

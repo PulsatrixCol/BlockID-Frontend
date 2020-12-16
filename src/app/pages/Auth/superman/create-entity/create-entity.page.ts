@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {BlockchainService} from '../../../../services/blockchain.service';
+import {BackendService } from '../../../../services/backend.service';
 import { NavController} from '@ionic/angular'
 
 @Component({
@@ -15,7 +15,7 @@ export class CreateEntityPage implements OnInit {
   public NIT: string
   public email: string
   public showTabla: boolean
-  constructor(private blockchain:BlockchainService,private navCtrl: NavController){ }
+  constructor(private backendService:BackendService,private navCtrl: NavController){ }
 
   ngOnInit() {
     this.pageName="Crear nueva entidad"
@@ -23,7 +23,7 @@ export class CreateEntityPage implements OnInit {
   }
 
   crearEntity(){
-    this.blockchain.createEntity(this.nombre, this.notas, this.sitio_web, this.NIT,this.email);
+    this.backendService.createEntity(this.nombre, this.notas, this.sitio_web, this.NIT,this.email);
     this.navCtrl.navigateRoot('superman');
   }
 }
