@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {BackendService } from '../../../../services/backend.service';
+import { NavController} from '@ionic/angular'
 
 @Component({
   selector: 'app-create-election',
@@ -7,11 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateElectionPage implements OnInit {
   public pageName: string
+  public nombre: string
+  public entidades: any[]
 
-  constructor() { }
+  constructor(private backendService: BackendService) { 
+    
+  }
 
   ngOnInit() {
     this.pageName = 'Crear Elección'
+    this.backendService.getInstitutionsList().then((res:any[])  => {
+      this.entidades = res['Res']
+    })
   }
 
 }

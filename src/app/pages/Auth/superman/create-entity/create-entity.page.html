@@ -1,7 +1,7 @@
 <app-header [pageName]="pageName"></app-header>
 
 <ion-content>
-  <form  (ngSubmit)="crearCandidato(form)">
+  <form  #entityForm="ngForm" (ngSubmit)="crearCandidato(form)" >
     <ion-row>
       <ion-col size-lg="12" size-md="12" size-sm="12" size="12" size-xs="12">
         <ion-list>
@@ -67,7 +67,7 @@
             <ion-input name="notas_front" #notas_front="ngModel" [(ngModel)]="notas" placeholder="Ingrese notas adionales"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-button shape="round"  (click)="crearEntity()" style="font-size: large; font-weight: bold;" expand="block" [disabled]="false">
+            <ion-button shape="round"  (click)="crearEntity()" style="font-size: large; font-weight: bold;" expand="block" [disabled]="entityForm.invalid">              
               <ion-icon name="business-outline"></ion-icon> Crear
             </ion-button>
           </ion-item>
@@ -76,6 +76,10 @@
     </ion-row>
   </form>
 <ion-row class="">
+  <ion-item>
+    <ion-label>Mostrar Instituciones activas: &nbsp;</ion-label>
+    <ion-toggle [(ngModel)]="showTabla"></ion-toggle>
+  </ion-item>
   <app-lista-elementos *ngIf="showTabla" tipoTabla="institutions_list" ></app-lista-elementos>
 </ion-row>
 </ion-content>
