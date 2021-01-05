@@ -50,4 +50,24 @@ export class BackendService {
     })
   }
 
+  createElection(
+    Nombre_eleccion: string, 
+    hora_inicio: string, 
+    hora_fin: string,
+    InstitucioneId: string,
+    descripcion: string
+    ){
+    const body = {Nombre_eleccion,hora_inicio,hora_fin,InstitucioneId,descripcion}
+    return new Promise(resolve =>{
+      this.http.post(API_URL + '/createElection',body,this.httpOptions).subscribe(res => {
+        //console.log(res)
+        this.toastService.successToast("Elección creada satisfactoriamente")
+        resolve(res)
+      }, err=> {
+        this.toastService.dangerToast(err.mensaje)
+        console.log(err)
+      })
+    })
+  }
+
 }

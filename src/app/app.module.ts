@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 //import { ChartsModule } from './charts/charts.module';
 //import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 //import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics'
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
