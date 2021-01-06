@@ -70,4 +70,19 @@ export class BackendService {
     })
   }
 
+  /********************************
+   * Get all the elections programmed on the platform
+   */
+  getProgrammedElections(){
+    return new Promise(resolve =>{
+      this.http.get(API_URL + '/get_programmed_elections',this.httpOptions).subscribe(res => {
+        //console.log(res)
+        resolve(res)
+      }, err=> {
+        this.toastService.dangerToast(err.mensaje)
+        console.log(err)
+      })
+    })
+  }
+
 }

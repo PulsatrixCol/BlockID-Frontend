@@ -15,19 +15,20 @@ export class CreateElectionPage implements OnInit {
   public entidades: any[]
   public entidad: any
   public fecha_inicio: string
+  public fecha_fin: string
+  public descripcion: string
   public year: string
   public month: string
   public day: string
   public hour: string
   public minute: string
   public second: string
+  public lista_meses: any[]
 
-  customYearValues = [2020, 2016, 2008, 2004, 2000, 1996];
-  customDayShortNames = ['s\u00f8n', 'man', 'tir', 'ons', 'tor', 'fre', 'l\u00f8r'];
   customPickerOptions: any;
 
 
-  constructor(private backendService: BackendService) { 
+  constructor(private backendService: BackendService, private navCtrl: NavController) { 
     this.customPickerOptions = {
       buttons: [{
         text: 'Guardar',
@@ -43,7 +44,8 @@ export class CreateElectionPage implements OnInit {
   }
 
   ngOnInit() {
-    console.log(DateTime.local())
+    this.lista_meses = []
+    //console.log(DateTime.local())
     this.year = DateTime.local().year
     this.month = DateTime.local().month
     this.day = DateTime.local().day
@@ -51,13 +53,23 @@ export class CreateElectionPage implements OnInit {
     this.minute = DateTime.local().minute
     this.second = DateTime.local().second
     this.pageName = 'Crear Elección'
+
     this.backendService.getInstitutionsList().then((res:any[])  => {
       this.entidades = res['institutions']
     })
+    for (let index = parseInt(this.month); index <= 12; index++) {
+      this.lista_meses.push(index)
+    }
   }
 
   createElection(){
-
+    /*
+    console.log(this.fecha_inicio)
+    console.log(this.fecha_fin)
+    console.log(this.descripcion)
+    console.log(this.entidad)*/
+    this.backendService.createElection(this.nombre, this.fecha_inicio, this.fecha_fin, this.entidad,this.descripcion);
+    this.navCtrl.navigateRoot('superman');
   }
 
 }

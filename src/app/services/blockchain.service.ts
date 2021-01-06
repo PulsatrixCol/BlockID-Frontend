@@ -78,13 +78,15 @@ export class BlockchainService {
        * OJO, DEBE RECIBIR MAS COSAS
        * @param nombre 
        * @param descrip 
+       * @param EleccioneId
        */
-    createCandidate(nombre: string, descrip: string){
-        const body = {nombre,descrip}
+    createCandidate(nombre: string, descrip: string,EleccioneId: string){
+        const body = {nombre,descrip,EleccioneId}
         return new Promise(resolve =>{
           this.http.post(API_URL + '/createCandidate',body,this.httpOptions).subscribe(res => {
             //console.log(res)
             resolve(res)
+            this.toastService.successToast('Candidato creado')
           }, err=> {
             this.toastService.dangerToast(err.mensaje)
             console.log(err)

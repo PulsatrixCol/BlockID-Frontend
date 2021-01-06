@@ -24,44 +24,29 @@
             </ion-input>
           </ion-item>
           <ion-item class="item-input" color="light">
-            <ion-select  name="selectInst" #selectInst="ngModel"  placeholder="Seleccione una institución" [(ngModel)]="entidad" interface="action-sheet">
-              <ion-select-option *ngFor="let item of entidades" [value]="item.nombre"> 
+            <ion-select  name="selectInst" placeholder="Seleccione una institución" [(ngModel)]="entidad" interface="action-sheet">
+              <ion-select-option *ngFor="let item of entidades" [value]="item.id"> 
                 <ion-label> {{item.nombre}}</ion-label>
               </ion-select-option>
             </ion-select>
           </ion-item>
 
           <ion-item class="item-input" color="light">
-            <ion-item>
-              <ion-label>Fecha y hora de inicio de la elección</ion-label>
-              <ion-datetime displayFormat="D MMM YYYY H:mm" min="year" max="year" value="" [(ngModel)]="fecha_inicio"></ion-datetime>
-            </ion-item>
+              <ion-label>Fecha y hora inicio de la elección</ion-label>
+              <ion-datetime displayFormat="D MMM H:mm" min="{{year}}" max="{{year}}" monthValues="{{lista_meses}}" value="" [(ngModel)]="fecha_fin" name="fecha_fin"></ion-datetime>
           </ion-item>
+
           <ion-item class="item-input" color="light">
-            <ion-input name="sitioweb_FRONT" #sitioweb_FRONT="ngModel" [(ngModel)]="sitio_web" placeholder="Ingrese el sitio web de la intitución"></ion-input>
+            <ion-label>Fecha y hora fin de la elección</ion-label>
+            <ion-datetime displayFormat="D MMM H:mm" min="{{year}}" max="{{year}}" monthValues="{{lista_meses}}" value="" [(ngModel)]="fecha_inicio" name="fecha_inicio"></ion-datetime>
           </ion-item>
+    
+
           <ion-item class="item-input" color="light">
-            <ion-input type="email" name="email_FRONT" 
-                      #email_FRONT="ngModel" 
-                      [(ngModel)]="email" 
-                      placeholder="Ingrese el email de la institución" 
-                      pattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                      required>
-              <div *ngIf="email_FRONT.invalid && (email_FRONT.dirty || email_FRONT.touched)" class="alert alert-danger">
-                <div *ngIf="email_FRONT.errors.required">
-                  El email es obligatorio &nbsp;&nbsp;&nbsp;&nbsp;
-                </div>
-                <div *ngIf="email_FRONT.errors.pattern">
-                    Ingrese un email válido&nbsp;&nbsp;&nbsp;&nbsp;
-                </div>  
-              </div>
-            </ion-input>
-          </ion-item>
-          <ion-item class="item-input" color="light">
-            <ion-input name="notas_front" #notas_front="ngModel" [(ngModel)]="notas" placeholder="Ingrese notas adionales"></ion-input>
+            <ion-textarea name="notas_front" [(ngModel)]="descripcion" placeholder="Ingrese la descripción de esta elección"></ion-textarea>
           </ion-item>
           <ion-item>
-            <ion-button shape="round"  (click)="crearEntity()" style="font-size: large; font-weight: bold;" expand="block" [disabled]="electionForm.invalid">              
+            <ion-button shape="round"  (click)="createElection()" style="font-size: large; font-weight: bold;" expand="block" [disabled]="electionForm.invalid">              
               <ion-icon name="business-outline"></ion-icon> Crear
             </ion-button>
           </ion-item>

@@ -1,18 +1,69 @@
 <app-header [pageName]="pageName"></app-header>
 
 <ion-content>
-  <form  (ngSubmit)="crearCandidato(form)" >
+  <form #entityForm="ngForm" (ngSubmit)="crearCandidato(form)" >
     <ion-row>
       <ion-col size-lg="12" size-md="12" size-sm="12" size="12" size-xs="12">
         <ion-list>
+          
           <ion-item class="item-input" color="light">
-            <ion-input name="nombreCandidato" #nombreCandidato="ngModel" [(ngModel)]="nombre" placeholder="Nombre del candidato"></ion-input>
+            <ion-input id="nombreCandidato" 
+                        name = "nombreCandidato"
+                        [(ngModel)]="nombre" 
+                        #nombreCandidato="ngModel" 
+                        placeholder="Nombre del candidato"
+                        required minlength="2">
+                <div *ngIf="nombreCandidato.invalid && (nombreCandidato.dirty || nombreCandidato.touched)"
+                    class="alert alert-danger">
+                  <div *ngIf="nombreCandidato.errors.required">
+                    El nombre del candidato es obligatorio&nbsp;&nbsp;&nbsp;&nbsp;
+                  </div>
+                  <div *ngIf="nombreCandidato.errors.minlength">
+                    El nombre del candidato debe se debe ser superior a 2 caracteres&nbsp;&nbsp;&nbsp;&nbsp;
+                  </div>
+                </div>
+            </ion-input>
           </ion-item>
+
           <ion-item class="item-input" color="light">
-            <ion-input name="descripcion" #descripcion="ngModel" [(ngModel)]="descrip" placeholder="Ingrese una descripción"></ion-input>
+            <ion-textarea id="descripcion" 
+                          name="descripcion" 
+                          [(ngModel)]="descrip" 
+                          placeholder="Ingrese la descripción del candidato"
+                          #descripcion="ngModel" 
+                        required minlength="9">
+                <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)"
+                    class="alert alert-danger">
+                  <div *ngIf="descripcion.errors.required">
+                    La descripción es obligatoria&nbsp;&nbsp;&nbsp;&nbsp;
+                  </div>
+                  <div *ngIf="descripcion.errors.minlength">
+                    La descripción debe ser superior a 9 caracteres&nbsp;&nbsp;&nbsp;&nbsp;
+                  </div>
+                </div>
+            </ion-textarea>
           </ion-item>
+
+          <ion-item class="item-input" color="light">
+            <ion-select #selectProElecction="ngModel" name="selectProElecction" placeholder="Seleccione una elección" [(ngModel)]="electionID" interface="action-sheet">
+              <ion-select-option *ngFor="let item of eleccionesProgramadas" [value]="item.id"> 
+                <ion-label> {{item.Nombre_eleccion}}</ion-label>
+              </ion-select-option>
+              
+              <div *ngIf="selectProElecction.invalid && (selectProElecction.dirty || selectProElecction.touched)"
+                    class="alert alert-danger">
+                  <div *ngIf="selectProElecction.errors.required">
+                    La descripción es obligatoria&nbsp;&nbsp;&nbsp;&nbsp;
+                  </div>
+                </div>
+            </ion-select>
+          </ion-item>
+
+
+
+
           <ion-item>
-            <ion-button shape="round"  (click)="crearCandidato()" style="font-size: large; font-weight: bold;" expand="block">
+            <ion-button shape="round"  (click)="crearCandidato()" style="font-size: large; font-weight: bold;" expand="block" [disabled]="entityForm.invalid">
               <ion-icon name="body-outline"></ion-icon>Crear
             </ion-button>
           </ion-item>
