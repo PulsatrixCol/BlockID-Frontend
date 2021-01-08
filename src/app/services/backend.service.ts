@@ -71,11 +71,26 @@ export class BackendService {
   }
 
   /********************************
-   * Get all the elections programmed on the platform
+   * Get all the elections programmed in the platform
    */
   getProgrammedElections(){
     return new Promise(resolve =>{
       this.http.get(API_URL + '/get_programmed_elections',this.httpOptions).subscribe(res => {
+        //console.log(res)
+        resolve(res)
+      }, err=> {
+        this.toastService.dangerToast(err.mensaje)
+        console.log(err)
+      })
+    })
+  }
+
+   /********************************
+   * Get the ongoing elections in the platform
+   */
+  getActiveElections(){
+    return new Promise(resolve =>{
+      this.http.get(API_URL + '/get_active_elections',this.httpOptions).subscribe(res => {
         //console.log(res)
         resolve(res)
       }, err=> {

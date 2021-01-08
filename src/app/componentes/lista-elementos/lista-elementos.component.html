@@ -28,3 +28,29 @@
         </ion-card-content>
     </ion-card>
 </div>
+
+
+<div *ngIf="tipoTabla == 'activeElectionsUser'">
+    <ion-card *ngFor="let registro of registros">
+        <ion-card-content>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="1.7" size-lg="1.7" size-md="12" size-sm="12" size-xs="12">
+                        <ion-item color="none" lines="none">
+                            <ion-label class="ion-text-center ion-text-wrap"><b>Nombre de la Elección: </b> {{ registro['Nombre_eleccion'] }}</ion-label>
+                        </ion-item>
+                        <ion-item color="none" lines="none">
+                            <ion-label class="ion-text-center ion-text-wrap"><b>Fecha y hora de inicio: </b>{{ registro['hora_inicio']}}</ion-label>
+                        </ion-item>
+                        <ion-item color="none" lines="none">
+                          <ion-label class="ion-text-center ion-text-wrap"><b> Fecha y hora de finalización: </b>{{ registro['hora_fin']}}</ion-label>
+                        </ion-item>
+                        <ion-item color="none" lines="none">
+                            <ion-label class="ion-text-center ion-text-wrap"><b>Descripción de la elección: </b>{{ registro['descripcion'] }}</ion-label>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card-content>
+    </ion-card>
+</div>

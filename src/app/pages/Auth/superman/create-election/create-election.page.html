@@ -33,12 +33,12 @@
 
           <ion-item class="item-input" color="light">
               <ion-label>Fecha y hora inicio de la elección</ion-label>
-              <ion-datetime displayFormat="D MMM H:mm" min="{{year}}" max="{{year}}" monthValues="{{lista_meses}}" value="" [(ngModel)]="fecha_fin" name="fecha_fin"></ion-datetime>
+              <ion-datetime displayFormat="D MMM H:mm" min="{{year}}" max="{{year}}" monthValues="{{lista_meses}}" value="" [(ngModel)]="fecha_inicio" name="fecha_inicio"></ion-datetime>
           </ion-item>
 
           <ion-item class="item-input" color="light">
             <ion-label>Fecha y hora fin de la elección</ion-label>
-            <ion-datetime displayFormat="D MMM H:mm" min="{{year}}" max="{{year}}" monthValues="{{lista_meses}}" value="" [(ngModel)]="fecha_inicio" name="fecha_inicio"></ion-datetime>
+            <ion-datetime displayFormat="D MMM H:mm" min="{{year}}" max="{{year}}" monthValues="{{lista_meses}}" value=""[(ngModel)]="fecha_fin" name="fecha_fin"  ></ion-datetime>
           </ion-item>
     
 

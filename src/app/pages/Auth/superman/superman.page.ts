@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController} from '@ionic/angular'
+import { NavController} from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-superman',
@@ -9,7 +10,7 @@ import { NavController} from '@ionic/angular'
 export class SupermanPage implements OnInit {
   public pageName: string
 
-  constructor(private navCtrl: NavController) { }
+  constructor(private navCtrl: NavController, private authService:AuthService) { }
 
   ngOnInit() {
     this.pageName="Super Administrador"
@@ -26,4 +27,10 @@ export class SupermanPage implements OnInit {
   createElection(){
     this.navCtrl.navigateRoot('create-election');
   }
+
+  logout() {		
+    this.authService.logout()
+    this.navCtrl.navigateRoot('')
+  }
+
 }
