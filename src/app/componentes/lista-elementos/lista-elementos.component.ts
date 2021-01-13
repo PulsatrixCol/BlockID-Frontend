@@ -35,7 +35,7 @@ export class ListaElementosComponent implements OnInit {
     
 
       for (let index = 0; index < this.registros.length; index++) {
-        this.registros[index]['hora_fin'] = DateTime.local(this.registros[index].hora_fin)
+        this.registros[index]['hora_fin'] = DateTime.fromISO(this.registros[index]['hora_fin'])
         
         
       }

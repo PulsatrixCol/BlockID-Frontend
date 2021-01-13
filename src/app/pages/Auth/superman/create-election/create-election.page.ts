@@ -17,12 +17,12 @@ export class CreateElectionPage implements OnInit {
   public fecha_inicio: string
   public fecha_fin: string
   public descripcion: string
-  public year: string
-  public month: string
-  public day: string
-  public hour: string
-  public minute: string
-  public second: string
+  public year: number
+  public month: number
+  public day: number
+  public hour: number
+  public minute: number
+  public second: number
   public lista_meses: any[]
 
   customPickerOptions: any;
@@ -57,7 +57,7 @@ export class CreateElectionPage implements OnInit {
     this.backendService.getInstitutionsList().then((res:any[])  => {
       this.entidades = res['institutions']
     })
-    for (let index = parseInt(this.month); index <= 12; index++) {
+    for (let index = this.month; index <= 12; index++) {
       this.lista_meses.push(index)
     }
   }
