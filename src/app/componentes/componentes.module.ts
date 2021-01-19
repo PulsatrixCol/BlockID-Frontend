@@ -7,7 +7,8 @@ import {HeaderComponent} from './header/header.component'
 import { QRCodeModule } from 'angularx-qrcode';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { ListaElementosComponent } from './lista-elementos/lista-elementos.component'
+import { ListaElementosComponent } from './lista-elementos/lista-elementos.component';
+import { CastVoteComponent } from './cast-vote/cast-vote.component';
 
 
 
@@ -17,7 +18,8 @@ import { ListaElementosComponent } from './lista-elementos/lista-elementos.compo
     BilleteraComponent,
     SendComponent,
     HeaderComponent,
-    ListaElementosComponent],
+    ListaElementosComponent,
+    CastVoteComponent],
   imports: [
     CommonModule,
     QRCodeModule,
@@ -29,7 +31,8 @@ import { ListaElementosComponent } from './lista-elementos/lista-elementos.compo
     BilleteraComponent,
     SendComponent,
     HeaderComponent,
-    ListaElementosComponent
+    ListaElementosComponent,
+    CastVoteComponent
   ]
 })
 export class ComponentesModule { }

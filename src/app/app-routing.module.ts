@@ -46,6 +46,10 @@ const routes: Routes = [
   {
     path: 'create-election',
     loadChildren: () => import('./pages/Auth/superman/create-election/create-election.module').then( m => m.CreateElectionPageModule)
+  },
+  {
+    path: 'cast-vote',
+    loadChildren: () => import('./pages/Auth/userhome/cast-vote/cast-vote.module').then( m => m.CastVotePageModule)
   }
 ];
 @NgModule({

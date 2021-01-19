@@ -31,7 +31,7 @@
 
 
 <div *ngIf="tipoTabla == 'activeElectionsUser'">
-    <ion-card *ngFor="let registro of registros">
+    <ion-card *ngFor="let registro of registros" (click)="goPoll(registro)">
         <ion-card-content>
             <ion-grid>
                 <ion-row>

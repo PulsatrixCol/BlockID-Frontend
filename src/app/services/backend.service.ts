@@ -100,4 +100,20 @@ export class BackendService {
     })
   }
 
+   /********************************
+   * Get candidates in a particular election
+   */
+  getCandidates(electionsId: string){
+    electionsId=electionsId.replace(/["']/g, "" );
+    return new Promise(resolve =>{
+      this.http.get(API_URL + '/get_candidates'+'?electionId='+electionsId,this.httpOptions).subscribe(res => {
+        //console.log(res)
+        resolve(res)
+      }, err=> {
+        this.toastService.dangerToast(err.mensaje)
+        console.log(err)
+      })
+    })
+  }
+
 }

@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { BackendService } from '../../services/backend.service'
 import {ToastService } from '../../services/toast.service'
 import { DateTime } from "luxon";
-
+import { NavController} from '@ionic/angular';
+import { NavigationExtras } from '@angular/router';
 @Component({
   selector: 'app-lista-elementos',
   templateUrl: './lista-elementos.component.html',
@@ -19,7 +20,8 @@ export class ListaElementosComponent implements OnInit {
 
   constructor(
     private backendService: BackendService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private navCtrl: NavController
   ) { }
 
   ngOnInit() {
@@ -35,7 +37,8 @@ export class ListaElementosComponent implements OnInit {
     
 
       for (let index = 0; index < this.registros.length; index++) {
-        this.registros[index]['hora_fin'] = DateTime.fromISO(this.registros[index]['hora_fin'])
+        this.registros[index]['hora_fin'] = DateTime.fromISO(this.registros[index]['hora_fin']).toLocaleString(DateTime.DATETIME_FULL)
+        this.registros[index]['hora_inicio'] = DateTime.fromISO(this.registros[index]['hora_inicio']).toLocaleString(DateTime.DATETIME_FULL)
         
         
       }
@@ -43,4 +46,13 @@ export class ListaElementosComponent implements OnInit {
    }
   }
 
+  goPoll(registro: any){
+    //console.log(registro)
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        electionId: JSON.stringify(registro.id)
+      }
+    };
+    this.navCtrl.navigateForward('cast-vote',navigationExtras)
+  }
 }
