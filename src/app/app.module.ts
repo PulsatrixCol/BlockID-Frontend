@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import {VoteCertificatePageModule} from './pages/Auth/userhome/vote-certificate/vote-certificate.module';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -30,6 +31,7 @@ import { FormsModule } from '@angular/forms';
     //NgxMaskIonicModule.forRoot(),
     HttpClientModule,
     FormsModule,
+    VoteCertificatePageModule
     
     //NgxDaterangepickerMd.forRoot(),
     //NgxGoogleAnalyticsModule.forRoot('G-QVY22JDDSX'),

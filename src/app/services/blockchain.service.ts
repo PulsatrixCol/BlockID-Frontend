@@ -67,7 +67,7 @@ export class BlockchainService {
             //console.log(res)
             resolve(res)
           }, err=> {
-            this.toastService.dangerToast(err.mensaje)
+            this.toastService.dangerToast(err.error.mensaje)
             console.log(err)
           })
         })
@@ -88,7 +88,7 @@ export class BlockchainService {
             resolve(res)
             this.toastService.successToast('Candidato creado')
           }, err=> {
-            this.toastService.dangerToast(err.mensaje)
+            this.toastService.dangerToast(err.error.mensaje)
             console.log(err)
           })
         })

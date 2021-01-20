@@ -20,4 +20,6 @@ export class CastVotePage implements OnInit {
     this.pageName = "Emitir voto"
   }
 
+
+
 }

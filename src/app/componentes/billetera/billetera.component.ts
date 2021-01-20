@@ -32,7 +32,7 @@ export class BilleteraComponent implements OnInit {
   private async balanceBootstrap() {
     if(this.address != 'null'){
       this.balance =  await this.blockchain.getBalance(this.address)
-      console.log(this.balance)
+      //console.log(this.balance)
     }
   }
 

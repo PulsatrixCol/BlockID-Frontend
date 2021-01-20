@@ -44,7 +44,7 @@ export class BackendService {
         this.toastService.successToast("Institución creada satisfactoriamente")
         resolve(res)
       }, err=> {
-        this.toastService.dangerToast(err.mensaje)
+        this.toastService.dangerToast(err.error.mensaje)
         console.log(err)
       })
     })
@@ -64,7 +64,7 @@ export class BackendService {
         this.toastService.successToast("Elección creada satisfactoriamente")
         resolve(res)
       }, err=> {
-        this.toastService.dangerToast(err.mensaje)
+        this.toastService.dangerToast(err.error.mensaje)
         console.log(err)
       })
     })
@@ -79,7 +79,7 @@ export class BackendService {
         //console.log(res)
         resolve(res)
       }, err=> {
-        this.toastService.dangerToast(err.mensaje)
+        this.toastService.dangerToast(err.error.mensaje)
         console.log(err)
       })
     })
@@ -94,7 +94,7 @@ export class BackendService {
         //console.log(res)
         resolve(res)
       }, err=> {
-        this.toastService.dangerToast(err.mensaje)
+        this.toastService.dangerToast(err.error.mensaje)
         console.log(err)
       })
     })
@@ -110,7 +110,23 @@ export class BackendService {
         //console.log(res)
         resolve(res)
       }, err=> {
-        this.toastService.dangerToast(err.mensaje)
+        this.toastService.dangerToast(err.error.mensaje)
+        console.log(err)
+      })
+    })
+  }
+
+     /********************************
+   * Get candidate address for voting
+   */
+  getCandidateAddress(candidateId: string){
+    candidateId=candidateId.replace(/["']/g, "" );
+    return new Promise(resolve =>{
+      this.http.get(API_URL + '/get_candidate_id'+'?candidateId='+candidateId,this.httpOptions).subscribe(res => {
+        //console.log(res)
+        resolve(res)
+      }, err=> {
+        this.toastService.dangerToast(err.error.mensaje)
         console.log(err)
       })
     })

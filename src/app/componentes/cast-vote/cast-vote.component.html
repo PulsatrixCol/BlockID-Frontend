@@ -1,17 +1,19 @@
 <ion-grid>
-  <ion-row>
-    <ion-col>
-      ion-col
-    </ion-col>
-    <ion-col>
-      ion-col
-    </ion-col>
-    <ion-col>
-      ion-col
-    </ion-col>
-    <ion-col>
-      ion-col
+  <ion-row>    
+    <ion-col *ngFor="let candidate of candidates">
+      <ion-card  (click)="vote(candidate)">
+        <ion-card-content>
+          <ion-item color="light" lines="none">
+              <ion-label class="ion-text-center ion-text-wrap"><b> {{ candidate['Nombre'] }} </b> </ion-label>
+          </ion-item>
+          <ion-item color="none" lines="none">
+              <ion-label class="ion-text-center ion-text-wrap"><b>PICTURE </b>{{ candidate['foto']}}</ion-label>
+          </ion-item>
+          <ion-item color="none" lines="none">
+            <ion-label class="ion-text-center ion-text-wrap"><b>  {{ candidate['descripcion']}} </b></ion-label>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
     </ion-col>
   </ion-row>
-
 </ion-grid>
