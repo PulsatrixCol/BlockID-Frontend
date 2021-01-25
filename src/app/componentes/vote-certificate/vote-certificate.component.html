@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-label>CERTIFICADO DE VOTACIÓN</ion-label>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="votecert">
+  <ion-grid>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col>
+        <b>Block ID certifica tu voto</b>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col>
+        <qrcode [qrdata]="txid" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <b>Identificador único del voto: {{txid}}</b>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="exportarPDF()">Descargar PDF</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+  
+

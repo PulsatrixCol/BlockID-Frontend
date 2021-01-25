@@ -37,7 +37,6 @@ export class BilleteraComponent implements OnInit {
   }
 
   public async send(){
-    //this.modal.presentModal()
     this.navCtrl.navigateRoot('sendassets');
   }
 

@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { VoteCertificatePage } from './vote-certificate.page';
+import { VoteCertificateComponent } from './vote-certificate.component';
 
-describe('VoteCertificatePage', () => {
-  let component: VoteCertificatePage;
-  let fixture: ComponentFixture<VoteCertificatePage>;
+describe('VoteCertificateComponent', () => {
+  let component: VoteCertificateComponent;
+  let fixture: ComponentFixture<VoteCertificateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VoteCertificatePage ],
+      declarations: [ VoteCertificateComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(VoteCertificatePage);
+    fixture = TestBed.createComponent(VoteCertificateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

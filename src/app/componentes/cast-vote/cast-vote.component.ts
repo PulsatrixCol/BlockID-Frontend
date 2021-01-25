@@ -4,7 +4,8 @@ import {BlockchainService} from '../../services/blockchain.service'
 import { AlertController } from '@ionic/angular';
 import {NavController} from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
-import { VoteCertificatePageModule } from 'src/app/pages/Auth/userhome/vote-certificate/vote-certificate.module';
+import {VoteCertificateComponent} from '../vote-certificate/vote-certificate.component'
+
 
 @Component({
   selector: 'app-cast-vote',
@@ -33,7 +34,7 @@ export class CastVoteComponent implements OnInit {
   async vote(candidate: any) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Confirm!',
+      header: 'Confirma tu voto',
       message: 'Confirmar voto por:  <strong>'+candidate.Nombre+'</strong>',
       buttons: [
         {
@@ -60,15 +61,16 @@ export class CastVoteComponent implements OnInit {
   private castVote(candidateId){
     this.backendService.getCandidateAddress(candidateId).then((res:any[])  => {
       let wallet = res['blockid']
-      this.blockchainService.sendRaw(wallet.blockid,1,"\"\"").then(data => {this.txid = data})
+      this.blockchainService.sendRaw(wallet.blockid,1,"\"\"").then(data => {this.txid = data
+                                                                            this.openModal(data)})
     })
   }
 
 
   async openModal(data: any) {
     const modal = await this.modalController.create({
-    component: VoteCertificatePageModule,
-    componentProps: { txid: data}
+    component: VoteCertificateComponent,
+    componentProps: { txid: data.txid}
     });
     return await modal.present();
    }

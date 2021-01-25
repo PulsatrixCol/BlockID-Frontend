@@ -17,4 +17,9 @@ export class HeaderComponent implements OnInit {
     this.navCtrl.navigateRoot('tabs');
   }
 
+  public async goBack(){
+    //this.modal.presentModal()
+    this.navCtrl.navigateBack
+  }
+
 }

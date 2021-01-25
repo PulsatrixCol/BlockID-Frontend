@@ -9,6 +9,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { ListaElementosComponent } from './lista-elementos/lista-elementos.component';
 import { CastVoteComponent } from './cast-vote/cast-vote.component';
+import {VoteCertificateComponent } from './vote-certificate/vote-certificate.component';
 
 
 
@@ -19,7 +20,8 @@ import { CastVoteComponent } from './cast-vote/cast-vote.component';
     SendComponent,
     HeaderComponent,
     ListaElementosComponent,
-    CastVoteComponent],
+    CastVoteComponent,
+    VoteCertificateComponent],
   imports: [
     CommonModule,
     QRCodeModule,
@@ -32,7 +34,9 @@ import { CastVoteComponent } from './cast-vote/cast-vote.component';
     SendComponent,
     HeaderComponent,
     ListaElementosComponent,
-    CastVoteComponent
+    CastVoteComponent,
+    VoteCertificateComponent
+
   ]
 })
 export class ComponentesModule { }
