@@ -27,7 +27,7 @@ export class CastVoteComponent implements OnInit {
     //console.log(this.electionId)
     this.backendService.getCandidates(this.electionId).then((res:any[])  => {
       this.candidates = res['cands']
-      //console.log(this.candidates)
+      console.log(this.candidates)
     })
   }
 

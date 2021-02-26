@@ -80,8 +80,8 @@ export class BlockchainService {
        * @param descrip 
        * @param EleccioneId
        */
-    createCandidate(nombre: string, descrip: string,EleccioneId: string){
-        const body = {nombre,descrip,EleccioneId}
+    createCandidate(nombre: string, descrip: string,EleccioneId: string, foto: string){
+        const body = {nombre,descrip,EleccioneId,foto}
         return new Promise(resolve =>{
           this.http.post(API_URL + '/createCandidate',body,this.httpOptions).subscribe(res => {
             //console.log(res)

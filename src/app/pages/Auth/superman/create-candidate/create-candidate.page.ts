@@ -14,10 +14,11 @@ export class CreateCandidatePage implements OnInit {
   public electionID: string
   public pageName: string
   public eleccionesProgramadas: any[]
+  public imagen: any
 
   constructor(private blockchain:BlockchainService,
               private navCtrl: NavController, 
-              private backendService: BackendService) { }
+              private backendService: BackendService) { console.log(this.imagen)}
 
   ngOnInit() {
     this.pageName="Crear Candidato"
@@ -29,7 +30,20 @@ export class CreateCandidatePage implements OnInit {
   }
 
   crearCandidato(){
-    this.blockchain.createCandidate(this.nombre,this.descrip,this.electionID);
+    this.blockchain.createCandidate(this.nombre,this.descrip,this.electionID,this.imagen);
     this.navCtrl.navigateRoot('superman');
   }
+
+loadImageFromDevice(event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = () => { // note using fat arrow function here if we intend to point at current Class context.
+    this.imagen = reader.result;
+  };
+  reader.onerror = (error) => {
+    //handle errors
+  };
+};
+  
 }

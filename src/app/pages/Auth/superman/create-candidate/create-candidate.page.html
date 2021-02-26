@@ -60,7 +60,15 @@
           </ion-item>
 
 
-
+          <ion-item>
+            <ion-button expand="full">
+              <ion-icon lazy="true" slot="start" name="image"></ion-icon>
+              <ion-label slot="end"> &nbsp;&nbsp;Subir una imagen del candidato</ion-label>
+              <input type="file" (change)="loadImageFromDevice($event)" id="file-input"
+                accept="image/png, image/jpeg">
+            </ion-button>
+            <ion-img *ngIf="imagen != undefined" src={{imagen}}></ion-img>
+          </ion-item>
 
           <ion-item>
             <ion-button shape="round"  (click)="crearCandidato()" style="font-size: large; font-weight: bold;" expand="block" [disabled]="entityForm.invalid">

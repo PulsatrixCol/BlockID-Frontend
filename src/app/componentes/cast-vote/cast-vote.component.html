@@ -7,7 +7,8 @@
               <ion-label class="ion-text-center ion-text-wrap"><b> {{ candidate['Nombre'] }} </b> </ion-label>
           </ion-item>
           <ion-item color="none" lines="none">
-              <ion-label class="ion-text-center ion-text-wrap"><b>PICTURE </b>{{ candidate['foto']}}</ion-label>
+              <ion-img *ngIf="candidate['foto'] != undefined" src="{{ candidate['foto']}}"></ion-img>
+              <!--ion-label class="ion-text-center ion-text-wrap"><b>PICTURE </b>{{ candidate['foto']}}</ion-label-->
           </ion-item>
           <ion-item color="none" lines="none">
             <ion-label class="ion-text-center ion-text-wrap"><b>  {{ candidate['descripcion']}} </b></ion-label>
