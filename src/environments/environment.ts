@@ -8,9 +8,10 @@ export const environment = {
 
 //url del api en desarrollo
 //export const API_URL = 'https://dataengine.wif-id.co/api'
-export const API_URL = 'http://localhost:3000/api'
-
+//export const API_URL = 'http://localhost:3000/api'
+export const API_URL = 'http://blockid_api.pulsatrix.co:3002/api'
 export const SOCKET_URL = 'https://.wif-id.co'
+export const tokenName = 'vote-token'
 
 export const AUTH = {
   token: 'auth_token',

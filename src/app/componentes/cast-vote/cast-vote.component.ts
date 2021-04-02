@@ -5,6 +5,7 @@ import { AlertController } from '@ionic/angular';
 import {NavController} from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import {VoteCertificateComponent} from '../vote-certificate/vote-certificate.component'
+import { tokenName } from '../../../environments/environment';
 
 
 @Component({
@@ -61,7 +62,7 @@ export class CastVoteComponent implements OnInit {
   private castVote(candidateId){
     this.backendService.getCandidateAddress(candidateId).then((res:any[])  => {
       let wallet = res['blockid']
-      this.blockchainService.sendRaw(wallet.blockid,1,"\"\"").then(data => {this.txid = data
+      this.blockchainService.sendRaw(wallet.blockid,1,tokenName).then(data => {this.txid = data
                                                                             this.openModal(data)})
     })
   }
