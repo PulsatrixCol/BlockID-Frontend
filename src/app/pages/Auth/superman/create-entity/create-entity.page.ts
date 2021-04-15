@@ -7,6 +7,7 @@ import { NavController} from '@ionic/angular'
   templateUrl: './create-entity.page.html',
   styleUrls: ['./create-entity.page.scss'],
 })
+
 export class CreateEntityPage implements OnInit {
 
   public pageName: string
