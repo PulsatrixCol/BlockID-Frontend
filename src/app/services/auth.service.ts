@@ -22,15 +22,12 @@ export class AuthService {
       }
     }
 
-    login(data: any){
+    async login(data: any){
       return new Promise(resolve =>{
         this.http.post(API_URL + '/autenticacion',data,this.httpOptions).subscribe(res => {
           localStorage.setItem(AUTH.token,res['token'])
           localStorage.setItem(AUTH.tipo,res['rol'])
-          /**PRETTY DANGEROUS PRACTICE, THINK ABOUT HOW TO FIX THIS. 
-           * Is here only for research purposes.
-          */
-          localStorage.setItem('privkey',res['privkey'])
+          //Now in tokrn localStorage.setItem('privkey',res['privkey'])
           localStorage.setItem('pubkey',res['pubkey'])
           localStorage.setItem('address',res['address'])
           localStorage.setItem('userId',res['userId'])
