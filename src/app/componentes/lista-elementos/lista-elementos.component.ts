@@ -44,6 +44,22 @@ export class ListaElementosComponent implements OnInit {
       }
     })
    }
+
+   if(this.tipoTabla == "finishedElectionsUser"){
+    this.backendService.getFinishedElections().then((res:any[])  => {
+      this.registros = res['Res']
+    
+
+      for (let index = 0; index < this.registros.length; index++) {
+        this.registros[index]['hora_fin'] = DateTime.fromISO(this.registros[index]['hora_fin']).toLocaleString(DateTime.DATETIME_FULL)
+        this.registros[index]['hora_inicio'] = DateTime.fromISO(this.registros[index]['hora_inicio']).toLocaleString(DateTime.DATETIME_FULL)
+        
+        
+      }
+    })
+   }
+
+
   }
 
   goPoll(registro: any){

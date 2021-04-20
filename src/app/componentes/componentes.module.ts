@@ -10,6 +10,9 @@ import { FormsModule } from '@angular/forms';
 import { ListaElementosComponent } from './lista-elementos/lista-elementos.component';
 import { CastVoteComponent } from './cast-vote/cast-vote.component';
 import {VoteCertificateComponent } from './vote-certificate/vote-certificate.component';
+import {ResultsComponent} from './results/results.component'
+import { NgApexchartsModule } from 'ng-apexcharts';
+
 
 
 
@@ -21,12 +24,14 @@ import {VoteCertificateComponent } from './vote-certificate/vote-certificate.com
     HeaderComponent,
     ListaElementosComponent,
     CastVoteComponent,
-    VoteCertificateComponent],
+    VoteCertificateComponent,
+    ResultsComponent],
   imports: [
     CommonModule,
     QRCodeModule,
     IonicModule,
-    FormsModule
+    FormsModule,
+    NgApexchartsModule
   ],
   exports: [
     NuevaIdentidadComponent,
@@ -35,7 +40,8 @@ import {VoteCertificateComponent } from './vote-certificate/vote-certificate.com
     HeaderComponent,
     ListaElementosComponent,
     CastVoteComponent,
-    VoteCertificateComponent
+    VoteCertificateComponent,
+    ResultsComponent
 
   ]
 })

@@ -1,7 +1,7 @@
 <ion-grid>
   <ion-row>    
     <ion-col *ngFor="let candidate of candidates">
-      <ion-card  (click)="vote(candidate)">
+      <ion-card button (click)="vote(candidate)">
         <ion-card-content>
           <ion-item color="light" lines="none">
               <ion-label class="ion-text-center ion-text-wrap"><b> {{ candidate['Nombre'] }} </b> </ion-label>

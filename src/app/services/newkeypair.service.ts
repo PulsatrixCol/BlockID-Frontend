@@ -23,7 +23,7 @@ export class NewkeypairService {
       return new Promise(resolve =>{
         this.http.get(API_URL + '/new_wallet'+'?userId='+userId,this.httpOptions).subscribe(res => {
           localStorage.setItem('address',res['address'])
-          localStorage.setItem('privkey',res['privkey'])
+          //localStorage.setItem('privkey',res['privkey'])
           localStorage.setItem('pubkey',res['pubkey'])
           resolve(res)
         }, err=> {

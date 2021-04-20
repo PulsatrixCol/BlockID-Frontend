@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 //import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 //import {NgxMaskIonicModule} from 'ngx-mask-ionic'
 import { FormsModule } from '@angular/forms';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 //import { NativeAudio } from '@ionic-native/native-audio/ngx';
 //import { ChartsModule } from './charts/charts.module';
@@ -29,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     //ChartsModule,
     //NgxMaskIonicModule.forRoot(),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgApexchartsModule
     //NgxDaterangepickerMd.forRoot(),
     //NgxGoogleAnalyticsModule.forRoot('G-QVY22JDDSX'),
     //NgxGoogleAnalyticsRouterModule

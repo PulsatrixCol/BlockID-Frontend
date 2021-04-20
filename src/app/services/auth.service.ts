@@ -27,7 +27,7 @@ export class AuthService {
         this.http.post(API_URL + '/autenticacion',data,this.httpOptions).subscribe(res => {
           localStorage.setItem(AUTH.token,res['token'])
           localStorage.setItem(AUTH.tipo,res['rol'])
-          //Now in tokrn localStorage.setItem('privkey',res['privkey'])
+          //Now in token localStorage.setItem('privkey',res['privkey'])
           localStorage.setItem('pubkey',res['pubkey'])
           localStorage.setItem('address',res['address'])
           localStorage.setItem('userId',res['userId'])

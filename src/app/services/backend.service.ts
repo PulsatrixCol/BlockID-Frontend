@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ToastService } from './toast.service';
-import { API_URL } from '../../environments/environment';
+import { API_URL,AUTH } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,8 @@ export class BackendService {
   ) { 
       this.httpOptions = {
         headers: new HttpHeaders({
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization':'Bearer '+localStorage.getItem(AUTH.token)
         })
     }
   }
@@ -99,6 +100,22 @@ export class BackendService {
       })
     })
   }
+
+
+     /********************************
+   * Get finished elections in the platform
+   */
+      getFinishedElections(){
+        return new Promise(resolve =>{
+          this.http.get(API_URL + '/get_finished_elections',this.httpOptions).subscribe(res => {
+            //console.log(res)
+            resolve(res)
+          }, err=> {
+            this.toastService.dangerToast(err.error.mensaje)
+            console.log(err)
+          })
+        })
+      }
 
    /********************************
    * Get candidates in a particular election
