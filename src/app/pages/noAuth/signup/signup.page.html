@@ -1,0 +1,97 @@
+<ion-content>
+  <ion-grid fixed>
+    <ion-row style="height: 100%;" class="ion-align-items-center">
+      <ion-col size-lg="4" size-md="3" size-sm="3" size="0" size-xs="0"></ion-col>
+      <ion-col size-lg="4" size-md="6" size-sm="6" size="12" size-xs="12">
+        <section class="full-width fixed-section">
+          <ion-item color="none" lines="none">
+            <ion-label style="font-size: 18px;" class="ion-text-wrap ion-text-center">
+                <strong>Crea tu cuenta en Block ID</strong>
+            </ion-label>
+          </ion-item>
+        </section>
+      </ion-col>
+    </ion-row>   
+    
+    <ion-row style="height: 100%;" class="ion-align-items-center">
+      <ion-col size-lg="4" size-md="3" size-sm="3" size="0" size-xs="0"></ion-col>
+      <ion-col size-lg="4" size-md="6" size-sm="6" size="12" size-xs="12">
+          <section class="full-width fixed-section">
+              <ion-item color="none" lines="none">
+                  <ion-label class="ion-text-wrap ion-text-center">
+                      Únete al futuro de la democracia 3.0
+                  </ion-label>
+              </ion-item>
+          </section>
+      </ion-col>
+  </ion-row>
+
+
+  <form #form="ngForm" (ngSubmit)="signup(form)" method="post">
+    <ion-row class="ion-align-items-center">
+      <ion-col size-lg="4" size-md="3" size-sm="3" size="0" size-xs="0"></ion-col>
+      <ion-col size-lg="4" size-md="6" size-sm="6" size="12" size-xs="12">
+          <section class="full-width fixed-section">
+              <ion-item color="none" lines="none">
+                  <ion-input type="text" name="nombre" [(ngModel)]="nombre" class="ion-text-center" placeholder="Nombre Completo"></ion-input>
+              </ion-item>
+          </section>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size-lg="4" size-md="3" size-sm="3" size="0" size-xs="0"></ion-col>
+        <ion-col size-lg="4" size-md="6" size-sm="6" size="12" size-xs="12">
+            <section class="full-width fixed-section">
+                <ion-item color="none" lines="none">
+                    <ion-input required name="username" class="ion-text-center" [(ngModel)]="username" placeholder="Apodo (nickname)"></ion-input>
+                </ion-item>
+            </section>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+        <ion-col size-lg="4" size-md="3" size-sm="3" size="0" size-xs="0"></ion-col>
+        <ion-col size-lg="4" size-md="6" size-sm="6" size="12" size-xs="12">
+            <section class="full-width fixed-section">
+                <ion-item color="none" lines="none">
+                    <ion-input type="password" name="password" [(ngModel)]="password" class="ion-text-center" placeholder="Contraseña"></ion-input>
+                </ion-item>
+            </section>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col size-lg="4" size-md="3" size-sm="3" size="0" size-xs="0"></ion-col>
+      <ion-col size-lg="4" size-md="6" size-sm="6" size="12" size-xs="12">
+          <section class="full-width fixed-section">
+              <ion-item color="none" lines="none">
+                  <ion-input type="email" name="email" [(ngModel)]="email" class="ion-text-center" placeholder="Correo Electrónico"></ion-input>
+              </ion-item>
+          </section>
+      </ion-col>
+  </ion-row>
+  <ion-row class="ion-align-items-center">
+    <ion-col size-lg="4" size-md="3" size-sm="3" size="0" size-xs="0"></ion-col>
+    <ion-col size-lg="4" size-md="6" size-sm="6" size="12" size-xs="12">
+        <section class="full-width fixed-section">
+            <ion-item color="none" lines="none">
+                <ion-input type="number" name="celular" [(ngModel)]="celular" class="ion-text-center" placeholder="Celular"></ion-input>
+            </ion-item>
+        </section>
+    </ion-col>
+</ion-row>
+    <ion-row>
+        <ion-col size-lg="4" size-md="3" size-sm="3" size="0" size-xs="0"></ion-col>
+        <ion-col size-lg="4" size-md="6" size-sm="6" size="12" size-xs="12">
+            <section class="full-width fixed-section">
+              <ion-item color="none" lines="none">
+                <ion-label color="black" class="ion-text-wrap terminos">Al registrarse usted está aceptando los terminos y condiciones de esta app, también las politicas de datos establecidas según la ley 1581 de 2012</ion-label>
+            </ion-item>
+                <ion-button shape="round" mode="ios" disabled="{{ this.username.length == 0 || this.password.length == 0 }}" type="submit" color="primary" style="font-size: large; font-weight: bold;" expand="block">
+                    Registrarse
+                </ion-button>
+            </section>
+        </ion-col>
+    </ion-row>
+  
+  </form>
+  </ion-grid>
+</ion-content>

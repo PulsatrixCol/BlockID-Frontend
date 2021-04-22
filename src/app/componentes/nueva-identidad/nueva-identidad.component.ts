@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core'
-import {NewkeypairService} from '../../services/newkeypair.service'
+import { Component, OnInit, Input } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { BlockchainService } from 'src/app/services/blockchain.service';
+import { NewkeypairService } from '../../services/newkeypair.service';
 
 @Component({
   selector: 'app-nueva-identidad',
@@ -7,23 +9,31 @@ import {NewkeypairService} from '../../services/newkeypair.service'
   styleUrls: ['./nueva-identidad.component.scss'],
 })
 export class NuevaIdentidadComponent implements OnInit {
-  tengoLlaves=false
-  @Input() llave: string
-  @Input() pubkey: string
-  
-  constructor(private newkeypair:NewkeypairService) { 
-    this.tengoLlaves = this.newkeypair.doWeHaveKeys()
-   }
+  tengoLlaves = false;
+  @Input() llave: string;
+  @Input() pubkey: string;
+
+  constructor(
+    private newkeypair: NewkeypairService,
+    private navCtrl: NavController,
+    private blockchain: BlockchainService
+  ) {
+    this.tengoLlaves = this.blockchain.doWeHaveKeys();
+  }
 
   ngOnInit() {}
 
-  newKeys(){
-    this.newkeypair.newkeypair(localStorage.getItem('userId')).then(res => {
-      this.llave=res['address']
-      this.pubkey=localStorage.getItem('pubkey')
-      this.tengoLlaves = this.newkeypair.doWeHaveKeys()
-    })
-    
+  newKeys() {
+    if (!this.blockchain.doWeHaveKeys()) {
+      this.newkeypair.newkeypair(localStorage.getItem('userId')).then((res) => {
+        this.llave = res['address'];
+        this.tengoLlaves = true;
+        this.pubkey = localStorage.getItem('pubkey');
+        // this.navCtrl.navigateRoot('tabs');
+        window.location.reload();
+      });
+    }else{
+      this.navCtrl.navigateRoot('tabs');
+    }
   }
-
 }

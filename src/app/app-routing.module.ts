@@ -50,6 +50,10 @@ const routes: Routes = [
   {
     path: 'cast-vote',
     loadChildren: () => import('./pages/Auth/userhome/cast-vote/cast-vote.module').then( m => m.CastVotePageModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('./pages/noAuth/signup/signup.module').then( m => m.SignupPageModule)
   }
 ];
 @NgModule({

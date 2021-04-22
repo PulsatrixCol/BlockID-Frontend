@@ -13,22 +13,22 @@ import { AUTH } from '../../../../environments/environment';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  username:string = ''
-  password:string = ''
-  rol:string = ''
-  tipos:any
+  username: string = ''
+  password: string = ''
+  rol: string = ''
+  tipos: any
 
   constructor(
-    private popController:PopoverController,
-    private authService:AuthService,
-    private navController:NavController
+    private popController: PopoverController,
+    private authService: AuthService,
+    private navController: NavController
     //protected $gaService: GoogleAnalyticsService
     ) { }
 
   ngOnInit() {
   }
 
-  autenticarUsuario(form : NgForm)
+  autenticarUsuario(form: NgForm)
   {
     let data = {
       username: form.value.username,
@@ -45,12 +45,11 @@ export class LoginPage implements OnInit {
           break
 
       }
-
     })
   }
 
   registro(){
-    this.navController.navigateForward('registro')
+    this.navController.navigateForward('signup');
   }
 
 }

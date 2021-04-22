@@ -35,7 +35,7 @@ export class BlockchainService {
      }
 
     doWeHaveKeys(){
-      if(localStorage.getItem('privkey') == 'null'){
+      if(localStorage.getItem('address') === 'null'){
         return false
       }else{return true}
     }

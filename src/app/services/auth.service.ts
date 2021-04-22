@@ -12,9 +12,9 @@ export class AuthService {
 
   constructor( 
     private http: HttpClient,
-    private toastService:ToastService,
-    ) 
-    { 
+    private toastService: ToastService,
+    )
+    {
       this.httpOptions = {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
@@ -24,24 +24,37 @@ export class AuthService {
 
     async login(data: any){
       return new Promise(resolve =>{
-        this.http.post(API_URL + '/autenticacion',data,this.httpOptions).subscribe(res => {
-          localStorage.setItem(AUTH.token,res['token'])
-          localStorage.setItem(AUTH.tipo,res['rol'])
-          //Now in token localStorage.setItem('privkey',res['privkey'])
-          localStorage.setItem('pubkey',res['pubkey'])
-          localStorage.setItem('address',res['address'])
-          localStorage.setItem('userId',res['userId'])
-          localStorage.setItem('nombre',res['nombre'])
-          localStorage.setItem('username',res['username'])
-          resolve(res)
-        }, err=> {
-          this.toastService.dangerToast(err.error.mensaje)
-        })
-      })
+        this.http.post(API_URL + '/autenticacion', data, this.httpOptions).subscribe(res => {
+          localStorage.setItem(AUTH.token, res['token']);
+          localStorage.setItem(AUTH.tipo, res['rol']);
+          localStorage.setItem('pubkey', res['pubkey']);
+          localStorage.setItem('address', res['address']);
+          localStorage.setItem('userId', res['userId']);
+          localStorage.setItem('nombre', res['nombre']);
+          localStorage.setItem('username', res['username']);
+          resolve(res);
+        }, err => {
+          this.toastService.dangerToast(err.error.mensaje);
+        });
+      });
+    }
+
+    async signup(data: any){
+      return new Promise(resolve =>{
+        this.http.post(API_URL + '/signup', data, this.httpOptions).subscribe(res => {
+          localStorage.setItem(AUTH.token, res['token']);
+          localStorage.setItem(AUTH.tipo, res['rol']);
+          localStorage.setItem('address', res['address']);
+          localStorage.setItem('userId', res['userId']);
+          resolve(res);
+        }, err => {
+          this.toastService.dangerToast(err.error.mensaje);
+        });
+      });
     }
 
     getToken() {
-      return localStorage.getItem(AUTH.token)
+      return localStorage.getItem(AUTH.token);
     }
 
     getUserId(){
@@ -50,18 +63,18 @@ export class AuthService {
   
   
     getUserType() {
-      return localStorage.getItem(AUTH.tipo)
+      return localStorage.getItem(AUTH.tipo);
     }
 
     logout() {
-      localStorage.removeItem(AUTH.token)
-      localStorage.removeItem(AUTH.tipo)
-      localStorage.removeItem('pubkey')
-      localStorage.removeItem('privkey')
-      localStorage.removeItem('address')
-      localStorage.removeItem('userId') 
-      localStorage.removeItem('nombre')
-      localStorage.removeItem('username')
+      localStorage.removeItem(AUTH.token);
+      localStorage.removeItem(AUTH.tipo);
+      localStorage.removeItem('pubkey');
+      localStorage.removeItem('privkey');
+      localStorage.removeItem('address');
+      localStorage.removeItem('userId') ;
+      localStorage.removeItem('nombre');
+      localStorage.removeItem('username');
       /*localStorage.removeItem(ESTABLECIMIENTO.aforo)
       localStorage.removeItem(ESTABLECIMIENTO.nombre)
       localStorage.removeItem(ESTABLECIMIENTO.nit)*/

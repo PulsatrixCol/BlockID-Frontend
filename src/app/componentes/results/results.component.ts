@@ -8,7 +8,7 @@ import {
   ApexChart,
   ApexXAxis,
   ApexTitleSubtitle
-} from "ng-apexcharts";
+} from 'ng-apexcharts';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -23,15 +23,13 @@ export type ChartOptions = {
   styleUrls: ['./results.component.scss'],
 })
 export class ResultsComponent implements OnInit {
-  @ViewChild("chart", { static: false }) chart: ChartComponent;
+  @ViewChild('chart', { static: false }) chart: ChartComponent;
   public chartOptions: any
   @Input() EleccioneId: string
-  
   constructor(private blockchainService: BlockchainService, private loader: LoadingController) {
   }
-  
   ngOnInit() {
-    this.loader.create({message: "Cargando", mode: "ios", spinner: "crescent"}).then((loading) =>{
+    this.loader.create({message: 'Cargando', mode: 'ios', spinner: 'crescent'}).then((loading) =>{
       loading.present()
       this.blockchainService.getElectionStatistics(this.EleccioneId).then((res:any[])  => {
         var qty =[]
@@ -48,16 +46,16 @@ export class ResultsComponent implements OnInit {
         this.chartOptions = {
           series: [
             {
-              name: "Votos",
+              name: 'Votos',
               data: qty
             }
           ],
           chart: {
             height: 350,
-            type: "bar"
+            type: 'bar'
           },
           title: {
-            text: "Resultados de la votación"
+            text: 'Resultados de la votación'
           },
           xaxis: {
             categories: labels

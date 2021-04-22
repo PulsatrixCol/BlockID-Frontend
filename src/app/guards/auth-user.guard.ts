@@ -24,12 +24,12 @@ export class AuthUserGuard implements CanActivate {
           this.menuCtrl.enable(true, 'autenticado-user');
           this.menuCtrl.enable(false, 'autenticado-superman');
           return true;
-          break
+          break;
         case '1':
           this.menuCtrl.enable(false, 'autenticado-user');
           this.menuCtrl.enable(true, 'autenticado-superman');
           return true;
-          break
+          break;
       }
       return this.navCtrl.navigateRoot('login')
   }
