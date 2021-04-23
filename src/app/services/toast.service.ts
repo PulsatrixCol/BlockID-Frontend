@@ -5,7 +5,7 @@ import { ToastController } from '@ionic/angular';
   providedIn: 'root'
 })
 export class ToastService {
-  message: string
+  message: string;
   constructor(
     private toastController: ToastController
     ) { }
@@ -16,8 +16,8 @@ export class ToastService {
       message: cadena,
       color: 'danger'
     }).then(toast => {
-      toast.present()
-    })
+      toast.present();
+    });
   }
 
   successToast(cadena: any){
@@ -26,8 +26,8 @@ export class ToastService {
       message: cadena,
       color: 'success'
     }).then(toast => {
-      toast.present()
-    })
+      toast.present();
+    });
   }
 
   warningToast(cadena: any){
@@ -36,7 +36,7 @@ export class ToastService {
       message: cadena,
       color: 'warning'
     }).then(toast => {
-      toast.present()
-    })
+      toast.present();
+    });
   }
 }

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BackendService } from '../../services/backend.service'
 import {ToastService } from '../../services/toast.service'
-import { DateTime } from "luxon";
+import { DateTime } from 'luxon';
 import { NavController} from '@ionic/angular';
 import { NavigationExtras } from '@angular/router';
 @Component({
@@ -25,27 +25,19 @@ export class ListaElementosComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    /*
-    this.backendService.getInstitutionsList().then((res:any[])  => {
-     
-      this.registros = res['Res']
-    }) */
 
-   if(this.tipoTabla == "activeElectionsUser"){
+
+   if(this.tipoTabla === 'activeElectionsUser'){
     this.backendService.getActiveElections().then((res:any[])  => {
       this.registros = res['Res']
-    
-
       for (let index = 0; index < this.registros.length; index++) {
         this.registros[index]['hora_fin'] = DateTime.fromISO(this.registros[index]['hora_fin']).toLocaleString(DateTime.DATETIME_FULL)
         this.registros[index]['hora_inicio'] = DateTime.fromISO(this.registros[index]['hora_inicio']).toLocaleString(DateTime.DATETIME_FULL)
-        
-        
       }
-    })
+    });
    }
 
-   if(this.tipoTabla == "finishedElectionsUser"){
+   if(this.tipoTabla === 'finishedElectionsUser'){
     this.backendService.getFinishedElections().then((res:any[])  => {
       this.registros = res['Res']
     

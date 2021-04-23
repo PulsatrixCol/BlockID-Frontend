@@ -3,6 +3,7 @@ import { NavController } from '@ionic/angular';
 // import { PopCodigoPaisComponent } from '../../../components/pop-codigo-pais/pop-codigo-pais.component';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
+import { ValidadoresService } from '../../../services/validadores.service;
 import { AUTH } from '../../../../environments/environment';
 
 @Component({

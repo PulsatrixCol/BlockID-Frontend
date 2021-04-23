@@ -16,7 +16,7 @@ export class BilleteraComponent implements OnInit {
   public address: string;
   public username: string;
   public balance: {};
-  public tengoLlaves: boolean;
+  @Input() tengoLlaves: boolean;
 
   constructor(private newkeypair: NewkeypairService,
               private blockchain: BlockchainService,

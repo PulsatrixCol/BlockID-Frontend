@@ -9,7 +9,7 @@ import { NewkeypairService } from '../../services/newkeypair.service';
   styleUrls: ['./nueva-identidad.component.scss'],
 })
 export class NuevaIdentidadComponent implements OnInit {
-  tengoLlaves = false;
+  tengoLlaves = false; // boolean;
   @Input() llave: string;
   @Input() pubkey: string;
 
@@ -18,10 +18,11 @@ export class NuevaIdentidadComponent implements OnInit {
     private navCtrl: NavController,
     private blockchain: BlockchainService
   ) {
-    this.tengoLlaves = this.blockchain.doWeHaveKeys();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.tengoLlaves = this.blockchain.doWeHaveKeys();
+   }
 
   newKeys() {
     if (!this.blockchain.doWeHaveKeys()) {
