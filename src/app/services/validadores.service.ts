@@ -1,5 +1,5 @@
-import { ToastService } from './toast.service';
 import { Injectable } from '@angular/core';
+import { ToastService } from './toast.service';
 
 @Injectable({
   providedIn: 'root'
@@ -39,12 +39,17 @@ export class ValidadoresService {
   }
 
 
-  validaContrasena(password: string): boolean {
-    if(password.length < 6) {
+  validaContrasena(password: string, verifypass: string): boolean {
+    if (password.length < 6) {
       this.ui.dangerToast('La contraseña debe tener por lo menos 6 caracteres');
       return false;
     }
-
+    // tslint:disable-next-line: triple-equals
+    if (password != verifypass){
+      this.ui.dangerToast('Las contraseñas no coinciden.');
+      console.log(password+'    '+verifypass);
+      return false;
+    }
     return true;
   }
 
