@@ -12,6 +12,7 @@ import { CastVoteComponent } from './cast-vote/cast-vote.component';
 import {VoteCertificateComponent } from './vote-certificate/vote-certificate.component';
 import {ResultsComponent} from './results/results.component'
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { ChangepassComponent } from './changepass/changepass.component';
 
 
 
@@ -25,7 +26,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     ListaElementosComponent,
     CastVoteComponent,
     VoteCertificateComponent,
-    ResultsComponent],
+    ResultsComponent,
+    ChangepassComponent],
   imports: [
     CommonModule,
     QRCodeModule,
@@ -41,7 +43,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     ListaElementosComponent,
     CastVoteComponent,
     VoteCertificateComponent,
-    ResultsComponent
+    ResultsComponent,
+    ChangepassComponent
 
   ]
 })

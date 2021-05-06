@@ -54,6 +54,10 @@ const routes: Routes = [
   {
     path: 'signup',
     loadChildren: () => import('./pages/noAuth/signup/signup.module').then( m => m.SignupPageModule)
+  },
+  {
+    path: 'changepass',
+    loadChildren: () => import('./pages/Auth/changepass/changepass.module').then( m => m.ChangepassPageModule)
   }
 ];
 @NgModule({

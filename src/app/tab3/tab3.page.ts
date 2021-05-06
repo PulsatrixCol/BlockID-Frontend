@@ -9,13 +9,17 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class Tab3Page {
 
-  constructor(		
+  constructor(
     private navCtrl: NavController,
-    private authService:AuthService) {}
-    
-    logout() {		
-      this.authService.logout()
-      this.navCtrl.navigateRoot('')
+    private authService: AuthService) {}
+
+    logout() {
+      this.authService.logout();
+      this.navCtrl.navigateRoot('');
+    }
+
+    changepass(){
+      this.navCtrl.navigateForward('changepass');
     }
 
 }
