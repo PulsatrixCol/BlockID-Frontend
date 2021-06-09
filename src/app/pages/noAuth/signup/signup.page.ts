@@ -37,7 +37,7 @@ export class SignupPage implements OnInit {
       email: form.value.email,
 
     };
-    console.log(data);
+    //console.log(data);
     if (!this.validadores.validarEmail(data.email)) {
       return;
     }

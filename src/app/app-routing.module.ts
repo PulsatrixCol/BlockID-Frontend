@@ -33,31 +33,36 @@ const routes: Routes = [
   },
   {
     path: 'sendassets',
-    loadChildren: () => import('./pages/Auth/sendassets/sendassets.module').then( m => m.SendassetsPageModule)
+    loadChildren: () => import('./pages/Auth/sendassets/sendassets.module').then( m => m.SendassetsPageModule),
+    canActivate: [AuthUserGuard]
   },
   {
     path: 'create-candidate',
-    loadChildren: () => import('./pages/Auth/superman/create-candidate/create-candidate.module').then( m => m.CreateCandidatePageModule)
+    loadChildren: () => import('./pages/Auth/superman/create-candidate/create-candidate.module').then( m => m.CreateCandidatePageModule),
+    canActivate: [AuthUserGuard]
   },
   {
     path: 'create-entity',
-    loadChildren: () => import('./pages/Auth/superman/create-entity/create-entity.module').then( m => m.CreateEntityPageModule)
+    loadChildren: () => import('./pages/Auth/superman/create-entity/create-entity.module').then( m => m.CreateEntityPageModule),
+    canActivate: [AuthUserGuard]
   },
   {
     path: 'create-election',
-    loadChildren: () => import('./pages/Auth/superman/create-election/create-election.module').then( m => m.CreateElectionPageModule)
+    loadChildren: () => import('./pages/Auth/superman/create-election/create-election.module').then( m => m.CreateElectionPageModule),
+    canActivate: [AuthUserGuard]
   },
   {
     path: 'cast-vote',
-    loadChildren: () => import('./pages/Auth/userhome/cast-vote/cast-vote.module').then( m => m.CastVotePageModule)
+    loadChildren: () => import('./pages/Auth/userhome/cast-vote/cast-vote.module').then( m => m.CastVotePageModule),
+    canActivate: [AuthUserGuard]
   },
   {
     path: 'signup',
     loadChildren: () => import('./pages/noAuth/signup/signup.module').then( m => m.SignupPageModule)
   },
   {
-    path: 'changepass',
-    loadChildren: () => import('./pages/Auth/changepass/changepass.module').then( m => m.ChangepassPageModule)
+    path: 'cambiarpass',
+    loadChildren: () => import('./pages/Auth/cambiarpass/cambiarpass.module').then( m => m.CambiarpassPageModule)
   }
 ];
 @NgModule({

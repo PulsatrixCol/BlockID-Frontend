@@ -53,6 +53,19 @@ export class AuthService {
       });
     }
 
+    async changePass(data: any){
+      console.log(data);
+      return new Promise(resolve =>{
+        this.http.post(API_URL + '/cambiar_contrasena', data, this.httpOptions).subscribe(res => {
+          this.toastService.successToast('Contraseña cambiada correctamente');
+          resolve(res);
+        }, err => {
+          this.toastService.dangerToast(err.error.mensaje);
+        });
+
+      })
+    }
+
     getToken() {
       return localStorage.getItem(AUTH.token);
     }

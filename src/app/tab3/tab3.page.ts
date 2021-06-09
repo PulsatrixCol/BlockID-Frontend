@@ -11,15 +11,15 @@ export class Tab3Page {
 
   constructor(
     private navCtrl: NavController,
-    private authService: AuthService) {}
+    private authService: AuthService,) {}
 
     logout() {
       this.authService.logout();
       this.navCtrl.navigateRoot('');
     }
 
-    changepass(){
-      this.navCtrl.navigateForward('changepass');
+    async changepass(){
+      this.navCtrl.navigateForward('cambiarpass');
     }
 
 }

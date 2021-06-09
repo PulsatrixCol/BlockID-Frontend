@@ -47,7 +47,7 @@ export class ValidadoresService {
     // tslint:disable-next-line: triple-equals
     if (password != verifypass){
       this.ui.dangerToast('Las contraseñas no coinciden.');
-      console.log(password+'    '+verifypass);
+      //console.log(password+'    '+verifypass);
       return false;
     }
     return true;
