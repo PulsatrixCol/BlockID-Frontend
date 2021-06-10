@@ -93,7 +93,7 @@
         <ion-col size-lg="4" size-md="6" size-sm="6" size="12" size-xs="12">
             <section class="full-width fixed-section">
               <ion-item color="none" lines="none">
-                <ion-label color="black" class="ion-text-wrap terminos">Al registrarse usted está aceptando los terminos y condiciones de esta app, también las politicas de datos establecidas según la ley 1581 de 2012</ion-label>
+                <ion-label color="black" class="ion-text-wrap terminos">Al registrarse usted está aceptando los terminos y condiciones de esta app, también <a routerLink="/politica-datos">la política de datos</a> establecidas según la ley 1581 de 2012</ion-label>
             </ion-item>
                 <ion-button shape="round" mode="ios" disabled="{{ username.length == 0 || password.length == 0 }}" type="submit" color="primary" style="font-size: large; font-weight: bold;" expand="block">
                     Registrarse

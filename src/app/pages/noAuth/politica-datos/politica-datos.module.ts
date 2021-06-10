@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { PoliticaDatosPageRoutingModule } from './politica-datos-routing.module';
 
 import { PoliticaDatosPage } from './politica-datos.page';
+import { ComponentesModule } from './../../../componentes/componentes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PoliticaDatosPageRoutingModule
+    PoliticaDatosPageRoutingModule,
+    ComponentesModule
   ],
   declarations: [PoliticaDatosPage]
 })
