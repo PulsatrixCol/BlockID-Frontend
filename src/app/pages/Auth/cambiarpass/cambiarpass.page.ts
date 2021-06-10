@@ -20,7 +20,7 @@ export class CambiarpassPage implements OnInit {
     private authService: AuthService,
     private validationService: ValidadoresService,
     private navController: NavController
-  ) { 
+  ) {
 
   }
 

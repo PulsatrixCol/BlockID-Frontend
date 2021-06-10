@@ -63,6 +63,10 @@ const routes: Routes = [
   {
     path: 'cambiarpass',
     loadChildren: () => import('./pages/Auth/cambiarpass/cambiarpass.module').then( m => m.CambiarpassPageModule)
+  },
+  {
+    path: 'politica-datos',
+    loadChildren: () => import('./pages/noAuth/politica-datos/politica-datos.module').then( m => m.PoliticaDatosPageModule)
   }
 ];
 @NgModule({
