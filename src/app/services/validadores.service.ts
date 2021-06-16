@@ -30,7 +30,7 @@ export class ValidadoresService {
       return false;
     }
 
-    if (celular.length > 10) {
+    if (celular.length > 10 || celular.length < 10) {
       this.ui.dangerToast('Por favor ingresa un celular válido');
       return false;
     }
@@ -45,9 +45,25 @@ export class ValidadoresService {
       return false;
     }
     // tslint:disable-next-line: triple-equals
-    if (password != verifypass){
+    if (password !== verifypass){
       this.ui.dangerToast('Las contraseñas no coinciden.');
-      //console.log(password+'    '+verifypass);
+      console.log(password+'    '+verifypass);
+      return false;
+    }
+    return true;
+  }
+
+  requeridoDepto(cadena: string): boolean {
+    if (cadena.length === 0) {
+      this.ui.dangerToast('Ingresa el departamento donde votas');
+      return false;
+    }
+    return true;
+  }
+
+  requeridoCity(cadena: string): boolean {
+    if (cadena.length === 0) {
+      this.ui.dangerToast('Ingresa la ciudad donde votas');
       return false;
     }
     return true;

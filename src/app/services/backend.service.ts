@@ -149,4 +149,21 @@ export class BackendService {
     })
   }
 
+  registrarVoto(
+    departamento: string,
+    ciudad: string,
+    EleccioneId: string,
+    txid: string){
+    const body = {departamento,ciudad,EleccioneId,txid}
+    return new Promise(resolve =>{
+      this.http.post(API_URL + '/regvoto',body,this.httpOptions).subscribe(res => {
+        //console.log(res)
+        resolve(res)
+      }, err=> {
+        this.toastService.dangerToast(err.error.mensaje)
+        console.log(err)
+      })
+    })
+  }
+
 }

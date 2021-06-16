@@ -13,7 +13,10 @@ import { ValidadoresService } from '../../../services/validadores.service';
   styleUrls: ['./cambiarpass.page.scss'],
 })
 export class CambiarpassPage implements OnInit {
-
+  data: any = {
+    password: '',
+    verifypass: ''
+  }
 
 
   constructor(
@@ -28,15 +31,15 @@ export class CambiarpassPage implements OnInit {
   }
 
   cambialo(form: NgForm){
-    const data = {
+    this.data = {
       password: form.value.password,
       verifypass: form.value.verifypass,
     };
-    if (!this.validationService.validaContrasena(data.password, data.verifypass)){
+    if (!this.validationService.validaContrasena(this.data.password, this.data.verifypass)){
       return;
     }
     const dataToSend = {
-      pass: data.password,
+      pass: this.data.password,
       user_id: localStorage.getItem('userId')
     }
     this.authService.changePass(dataToSend).then((res) => {

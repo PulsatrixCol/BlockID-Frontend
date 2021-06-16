@@ -62,8 +62,17 @@ export class CastVoteComponent implements OnInit {
   private castVote(candidateId){
     this.backendService.getCandidateAddress(candidateId).then((res:any[])  => {
       let wallet = res['blockid']
-      this.blockchainService.sendRaw(wallet.blockid,1,tokenName).then(data => {this.txid = data
-                                                                            this.openModal(data)})
+      this.blockchainService.sendRaw(wallet.blockid,1,tokenName).then(data => {
+        this.txid = data
+        //const idtx = JSON.parse(String(data))
+        console.log(data)
+        this.backendService.registrarVoto(
+          localStorage.getItem('departamento'),
+          localStorage.getItem('ciudad'),
+          this.electionId.replace(/['"]+/g, ''),
+          this.txid.txid
+        );
+        this.openModal(data)})
     })
   }
 

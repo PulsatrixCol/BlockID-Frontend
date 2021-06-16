@@ -21,7 +21,7 @@
                 <ion-col size-lg="4" size-md="6" size-sm="6" size="12" size-xs="12">
                     <section class="full-width fixed-section">
                         <ion-item color="none" lines="none">
-                            <ion-input type="password" name="password" [(ngModel)]="password" class="ion-text-center" placeholder="Contraseña"></ion-input>
+                            <ion-input type="password" name="password" [(ngModel)]="data.password" class="ion-text-center" placeholder="Contraseña"></ion-input>
                         </ion-item>
                     </section>
                 </ion-col>
@@ -31,7 +31,7 @@
                 <ion-col size-lg="4" size-md="6" size-sm="6" size="12" size-xs="12">
                     <section class="full-width fixed-section">
                         <ion-item color="none" lines="none">
-                            <ion-input type="password" name="verifypass" [(ngModel)]="verifypass" class="ion-text-center" placeholder="Repetir contraseña"></ion-input>
+                            <ion-input type="password" name="verifypass" [(ngModel)]="data.verifypass" class="ion-text-center" placeholder="Repetir contraseña"></ion-input>
                         </ion-item>
                     </section>
                 </ion-col>
@@ -43,7 +43,7 @@
                 <ion-col size-lg="4" size-md="6" size-sm="6" size="12" size-xs="12">
                     <section class="full-width fixed-section">
         
-                        <ion-button shape="round" mode="ios" disabled="{{ password !== verifypass }}" type="submit" color="primary" style="font-size: large; font-weight: bold;" expand="block">
+                        <ion-button shape="round" mode="ios" disabled="{{ data.password !== data.verifypass }}" type="submit" color="primary" style="font-size: large; font-weight: bold;" expand="block">
                             Cambiar
                         </ion-button>
                     </section>

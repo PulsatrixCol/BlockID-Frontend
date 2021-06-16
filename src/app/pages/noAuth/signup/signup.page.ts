@@ -4,6 +4,7 @@ import { NavController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { ValidadoresService } from '../../../services/validadores.service';
+import { UbicacionesService } from '../../../services/ubicaciones.service'
 import { AUTH } from '../../../../environments/environment';
 
 
@@ -13,41 +14,62 @@ import { AUTH } from '../../../../environments/environment';
   styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
-  username = '';
-  nombre = '';
-  celular = '';
-  email = '';
-  password = '';
+  departamentos: any;
+  aceptoTerminos: boolean;
+  ciudades:any;
+  data: any = {
+    username: '',
+    nombre: null,
+    celular: null,
+    email: null,
+    password: '',
+    departamento: '',
+    ciudad: '',
+  }
 
   constructor(
     private authService: AuthService,
     private navController: NavController,
     private validadores: ValidadoresService,
+    private ubicacionesService: UbicacionesService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.departamentos = this.ubicacionesService.getDepartamentos();
+  }
+
+  departamentoChange() {
+    this.ciudades = this.ubicacionesService.getCiudades(this.data.departamento)
+  }
 
   signup(form: NgForm) {
-    const data = {
+    this.data = {
       username: form.value.username,
       password: form.value.password,
       verifypass: form.value.verifypass,
       nombre: form.value.nombre,
       celular: String(form.value.celular),
       email: form.value.email,
-
+      departamento: form.value.departamento,
+      ciudad: form.value.ciudad,
     };
     //console.log(data);
-    if (!this.validadores.validarEmail(data.email)) {
+    if (!this.validadores.validarEmail(this.data.email)) {
       return;
     }
-    if (!this.validadores.validarCelular(data.celular)){
+    if (!this.validadores.validarCelular(this.data.celular)){
       return;
     }
-    if (!this.validadores.validaContrasena(data.password, data.verifypass)){
+    if (!this.validadores.validaContrasena(this.data.password, this.data.verifypass)){
       return;
     }
-    this.authService.signup(data).then((res) => {
+    if(!this.validadores.requeridoDepto(this.data.departamento)){
+      return;
+    }
+    if(!this.validadores.requeridoCity(this.data.ciudad)){
+      return;
+    }
+    this.authService.signup(this.data).then((res) => {
       this.navController.navigateRoot('tabs');
     });
   }

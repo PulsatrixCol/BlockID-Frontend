@@ -25,6 +25,7 @@ export class AuthService {
     async login(data: any){
       return new Promise(resolve =>{
         this.http.post(API_URL + '/autenticacion', data, this.httpOptions).subscribe(res => {
+          console.log(res)
           localStorage.setItem(AUTH.token, res['token']);
           localStorage.setItem(AUTH.tipo, res['rol']);
           localStorage.setItem('pubkey', res['pubkey']);
@@ -32,6 +33,8 @@ export class AuthService {
           localStorage.setItem('userId', res['userId']);
           localStorage.setItem('nombre', res['nombre']);
           localStorage.setItem('username', res['username']);
+          localStorage.setItem('departamento', res['departamento']);
+          localStorage.setItem('ciudad', res['ciudad']);
           resolve(res);
         }, err => {
           this.toastService.dangerToast(err.error.mensaje);
@@ -46,6 +49,8 @@ export class AuthService {
           localStorage.setItem(AUTH.tipo, res['rol']);
           localStorage.setItem('address', res['address']);
           localStorage.setItem('userId', res['userId']);
+          localStorage.setItem('departamento', res['departamento']);
+          localStorage.setItem('ciudad', res['ciudad']);
           resolve(res);
         }, err => {
           this.toastService.dangerToast(err.error.mensaje);
@@ -88,6 +93,8 @@ export class AuthService {
       localStorage.removeItem('userId') ;
       localStorage.removeItem('nombre');
       localStorage.removeItem('username');
+      localStorage.removeItem('ciudad');
+      localStorage.removeItem('departamento');
       /*localStorage.removeItem(ESTABLECIMIENTO.aforo)
       localStorage.removeItem(ESTABLECIMIENTO.nombre)
       localStorage.removeItem(ESTABLECIMIENTO.nit)*/

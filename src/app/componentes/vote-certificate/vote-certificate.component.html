@@ -12,14 +12,20 @@
 <ion-content id="votecert">
   <ion-grid>
     <ion-row>
+      <ion-col class="logo">
+        <img src="assets/images/icono.png" height="90px"/>
+      </ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col></ion-col>
-      <ion-col>
-        <b>Block ID certifica tu voto</b>
+      <ion-col class="logo">
+        <b>Certificado de votación</b>
       </ion-col>
       <ion-col></ion-col>
     </ion-row>
     <ion-row>
-      <ion-col></ion-col>
+      <ion-col>
+      </ion-col>
       <ion-col>
         <qrcode [qrdata]="txid" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
       </ion-col>
