@@ -104,7 +104,7 @@
     </ion-col>
 </ion-row>
 
-<ion-row class="ion-align-items-center">
+<ion-row class="ion-align-items-center" *ngIf="(!extranjero)">
     <ion-col size-lg="4" size-md="3" size-sm="3" size="0" size-xs="0"></ion-col>
     <ion-col size-lg="4" size-md="6" size-sm="6" size="12" size-xs="12">
         <section class="full-width fixed-section">
@@ -121,7 +121,7 @@
     </ion-col>
  </ion-row>
 
-<ion-row class="ion-align-items-center">
+<ion-row class="ion-align-items-center" *ngIf="(!extranjero)">
     <ion-col size-lg="4" size-md="3" size-sm="3" size="0" size-xs="0"></ion-col>
     <ion-col size-lg="4" size-md="6" size-sm="6" size="12" size-xs="12">
         <section class="full-width fixed-section">
@@ -135,10 +135,25 @@
 </ion-row>
 
 
+
     <ion-row>
         <ion-col size-lg="4" size-md="3" size-sm="3" size="0" size-xs="0"></ion-col>
         <ion-col size-lg="4" size-md="6" size-sm="6" size="12" size-xs="12">
             <section class="full-width fixed-section">
+                <ion-chip color="primary">
+                    <ion-icon name="globe-outline"></ion-icon>
+                    <ion-label>¿Vives en el exterior?</ion-label>
+                    <ion-item>
+                        <ion-checkbox color="primary" [(ngModel)]="extranjero" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+                       </ion-item> 
+                </ion-chip>
+
+                <ion-item color="none" lines="none" *ngIf="extranjero">
+                    <ion-select class="green" name="pais" placeholder="País donde vota" [(ngModel)]="data.pais" expand="full" mode="ios" cancel-text="Volver" interface="action-sheet">
+                        <ion-select-option *ngFor="let pais of paises" value="{{ pais.nombre }}">{{ pais.nombre }}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+
               <ion-item color="none" lines="none">
                   <ion-item>
                    <ion-checkbox color="primary" [(ngModel)]="aceptoTerminos" [ngModelOptions]="{standalone: true}"></ion-checkbox>

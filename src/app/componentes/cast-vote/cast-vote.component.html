@@ -1,6 +1,6 @@
 <ion-grid>
   <ion-row>    
-    <ion-col *ngFor="let candidate of candidates">
+    <ion-col *ngFor="let candidate of candidates" size-md="3" size-sm="6" size-xs="6">
       <ion-card button (click)="vote(candidate)">
         <ion-card-content>
           <ion-item color="light" lines="none">

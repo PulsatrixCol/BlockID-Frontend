@@ -15,6 +15,8 @@ export class BilleteraComponent implements OnInit {
   public nombre: string;
   public address: string;
   public username: string;
+  public departamento: string;
+  public ciudad: string;
   public balance: {};
   @Input() tengoLlaves: boolean;
 
@@ -27,6 +29,8 @@ export class BilleteraComponent implements OnInit {
     this.address = localStorage.getItem('address');
     // console.log(this.address)
     this.username = localStorage.getItem('username');
+    this.ciudad = localStorage.getItem('ciudad');
+    this.departamento = localStorage.getItem('departamento');
    }
 
   private async balanceBootstrap() {

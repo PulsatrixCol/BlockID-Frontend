@@ -2,19 +2,28 @@
   <ion-row>
       <ion-card>
         <ion-card-header>
-          <ion-card-title>{{nombre}}</ion-card-title>
+          <ion-card-title></ion-card-title>
           <ion-card-subtitle>
-            <ion-chip color="primary">
-              <ion-icon name="person"></ion-icon>
-              <ion-label name="close-circle">{{username}}</ion-label>
-            </ion-chip>
           </ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
           <ion-row>
             <ion-col>
-              Tu identidad en la red está representada por una cadena de caracteres, solo tu puedes ver tus datos personales. 
-              El resto de la red, solo conocerá tu <strong>dirección de billetera</strong>
+              <ion-chip color="primary">
+                <ion-icon name="person"></ion-icon>
+                <ion-label name="close-circle"><strong>Nombre: </strong>{{nombre}}</ion-label>
+              </ion-chip>
+
+              <ion-chip color="primary">
+                <ion-icon name="business-outline"></ion-icon>
+                <ion-label name="close-circle"><strong>Ciudad donde vota: </strong>{{ciudad}}</ion-label>
+              </ion-chip>
+
+              <ion-chip color="primary">
+                <ion-icon name="map-outline"></ion-icon>
+                <ion-label name="close-circle"><strong>Departamento donde vota: </strong>{{departamento}}</ion-label>
+              </ion-chip>
+
               <ion-card>
                 <ion-item  *ngFor="let item of balance">
                   <ion-icon name="wallet" slot="start"></ion-icon>
@@ -26,21 +35,20 @@
                 </ion-item>
               </ion-card>
             </ion-col>
-            <ion-col class="ion-text-center" size-lg="6" size-md="6" size-sm="6" size="6" size-xs="6">
+            <ion-col class="ion-text-justify">
               <!--https://www.npmjs.com/package/angularx-qrcode-->
               <qrcode [qrdata]="address" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
               <strong>DIRECCIÓN DE BILLETERA</strong><br>
+              Tu identidad en la red está representada por este código: 
               <ion-chip color="secondary">
                 <ion-icon name="wallet"></ion-icon>
                 <ion-label name="close-circle">{{address}}</ion-label>
               </ion-chip><br>
-              <ion-button (click)="send()"><ion-icon name="rocket"></ion-icon>Enviar activos</ion-button>
+              <!--ion-button (click)="send()"><ion-icon name="rocket"></ion-icon>Enviar activos</ion-button !-->
             </ion-col>
             
           </ion-row>
           <p><br></p>
-          
-
         </ion-card-content>
       </ion-card>
   </ion-row>

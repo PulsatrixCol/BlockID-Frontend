@@ -63,4 +63,5 @@ export class ListaElementosComponent implements OnInit {
     };
     this.navCtrl.navigateForward('cast-vote',navigationExtras)
   }
+
 }

@@ -15,8 +15,10 @@ import { AUTH } from '../../../../environments/environment';
 })
 export class SignupPage implements OnInit {
   departamentos: any;
+  paises: any;
   aceptoTerminos: boolean;
-  ciudades:any;
+  extranjero: boolean; 
+  ciudades: any;
   data: any = {
     username: '',
     nombre: null,
@@ -25,6 +27,7 @@ export class SignupPage implements OnInit {
     password: '',
     departamento: '',
     ciudad: '',
+    pais: ''
   }
 
   constructor(
@@ -36,10 +39,12 @@ export class SignupPage implements OnInit {
 
   ngOnInit() {
     this.departamentos = this.ubicacionesService.getDepartamentos();
+    this.extranjero = false;
+    this.paises = this.ubicacionesService.getPaises();
   }
 
   departamentoChange() {
-    this.ciudades = this.ubicacionesService.getCiudades(this.data.departamento)
+    this.ciudades = this.ubicacionesService.getCiudades(this.data.departamento);
   }
 
   signup(form: NgForm) {
@@ -54,6 +59,9 @@ export class SignupPage implements OnInit {
       ciudad: form.value.ciudad,
     };
     //console.log(data);
+    if (!this.validadores.requeridoUsername(this.data.username)){
+      return;
+    }
     if (!this.validadores.validarEmail(this.data.email)) {
       return;
     }
@@ -63,10 +71,10 @@ export class SignupPage implements OnInit {
     if (!this.validadores.validaContrasena(this.data.password, this.data.verifypass)){
       return;
     }
-    if(!this.validadores.requeridoDepto(this.data.departamento)){
+    if (!this.validadores.requeridoDepto(this.data.departamento)){
       return;
     }
-    if(!this.validadores.requeridoCity(this.data.ciudad)){
+    if (!this.validadores.requeridoCity(this.data.ciudad)){
       return;
     }
     this.authService.signup(this.data).then((res) => {

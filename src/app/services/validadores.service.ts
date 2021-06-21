@@ -69,5 +69,12 @@ export class ValidadoresService {
     return true;
   }
 
+  requeridoUsername(cadena: string): boolean {
+    if (cadena.length === 0) {
+      this.ui.dangerToast('Ingresa un nombre de usuario.');
+      return false;
+    }
+    return true;
+  }
 
 }
