@@ -30,7 +30,7 @@ export class ValidadoresService {
       return false;
     }
 
-    if (celular.length > 10 || celular.length < 10) {
+    if (celular.length > 15) {
       this.ui.dangerToast('Por favor ingresa un celular válido');
       return false;
     }
@@ -72,6 +72,14 @@ export class ValidadoresService {
   requeridoUsername(cadena: string): boolean {
     if (cadena.length === 0) {
       this.ui.dangerToast('Ingresa un nombre de usuario.');
+      return false;
+    }
+    return true;
+  }
+
+  requeridoPais(cadena: string): boolean {
+    if (cadena.length === 0) {
+      this.ui.dangerToast('Ingresa tu país de residencia.');
       return false;
     }
     return true;

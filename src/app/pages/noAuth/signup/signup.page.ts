@@ -4,7 +4,7 @@ import { NavController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { ValidadoresService } from '../../../services/validadores.service';
-import { UbicacionesService } from '../../../services/ubicaciones.service'
+import { UbicacionesService } from '../../../services/ubicaciones.service';
 import { AUTH } from '../../../../environments/environment';
 
 
@@ -17,7 +17,7 @@ export class SignupPage implements OnInit {
   departamentos: any;
   paises: any;
   aceptoTerminos: boolean;
-  extranjero: boolean; 
+  extranjero: boolean;
   ciudades: any;
   data: any = {
     username: '',
@@ -28,7 +28,7 @@ export class SignupPage implements OnInit {
     departamento: '',
     ciudad: '',
     pais: ''
-  }
+  };
 
   constructor(
     private authService: AuthService,
@@ -48,6 +48,14 @@ export class SignupPage implements OnInit {
   }
 
   signup(form: NgForm) {
+    let pais = 'Colombia';
+    let ciudad = form.value.ciudad;
+    let departamento = form.value.departamento;
+    if (this.extranjero){
+      pais = form.value.pais;
+      ciudad = 'extranjero';
+      departamento = 'extranjero';
+    }
     this.data = {
       username: form.value.username,
       password: form.value.password,
@@ -55,10 +63,11 @@ export class SignupPage implements OnInit {
       nombre: form.value.nombre,
       celular: String(form.value.celular),
       email: form.value.email,
-      departamento: form.value.departamento,
-      ciudad: form.value.ciudad,
+      departamento: departamento,
+      ciudad: ciudad,
+      pais
     };
-    //console.log(data);
+    // console.log(data);
     if (!this.validadores.requeridoUsername(this.data.username)){
       return;
     }
@@ -76,6 +85,11 @@ export class SignupPage implements OnInit {
     }
     if (!this.validadores.requeridoCity(this.data.ciudad)){
       return;
+    }
+    if (this.extranjero){
+      if (!this.validadores.requeridoPais(this.data.pais)){
+        return;
+      }
     }
     this.authService.signup(this.data).then((res) => {
       this.navController.navigateRoot('tabs');

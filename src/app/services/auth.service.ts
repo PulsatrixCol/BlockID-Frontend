@@ -35,6 +35,7 @@ export class AuthService {
           localStorage.setItem('username', res['username']);
           localStorage.setItem('departamento', res['departamento']);
           localStorage.setItem('ciudad', res['ciudad']);
+          localStorage.setItem('pais', res['pais']);
           resolve(res);
         }, err => {
           this.toastService.dangerToast(err.error.mensaje);
@@ -51,6 +52,7 @@ export class AuthService {
           localStorage.setItem('userId', res['userId']);
           localStorage.setItem('departamento', res['departamento']);
           localStorage.setItem('ciudad', res['ciudad']);
+          localStorage.setItem('pais', res['pais']);
           resolve(res);
         }, err => {
           this.toastService.dangerToast(err.error.mensaje);
