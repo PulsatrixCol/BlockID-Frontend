@@ -152,9 +152,10 @@ export class BackendService {
   registrarVoto(
     departamento: string,
     ciudad: string,
+    pais: string,
     EleccioneId: string,
     txid: string){
-    const body = {departamento,ciudad,EleccioneId,txid}
+    const body = {departamento,ciudad,pais,EleccioneId,txid}
     return new Promise(resolve =>{
       this.http.post(API_URL + '/regvoto',body,this.httpOptions).subscribe(res => {
         //console.log(res)

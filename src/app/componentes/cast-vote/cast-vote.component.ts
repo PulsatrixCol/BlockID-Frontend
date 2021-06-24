@@ -67,6 +67,7 @@ export class CastVoteComponent implements OnInit {
         this.backendService.registrarVoto(
           localStorage.getItem('departamento'),
           localStorage.getItem('ciudad'),
+          localStorage.getItem('pais'),
           this.electionId.replace(/['"]+/g, ''),
           this.txid.txid
         );
