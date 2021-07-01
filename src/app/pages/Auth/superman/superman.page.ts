@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController} from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
+import { BlockchainService } from 'src/app/services/blockchain.service';
 
 @Component({
   selector: 'app-superman',
@@ -8,9 +9,12 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./superman.page.scss'],
 })
 export class SupermanPage implements OnInit {
-  public pageName: string
+  public pageName: string;
 
-  constructor(private navCtrl: NavController, private authService:AuthService) { }
+  constructor(
+    private navCtrl: NavController,
+    private authService: AuthService,
+    private blockchainService: BlockchainService) { }
 
   ngOnInit() {
     this.pageName="Super Administrador"
@@ -26,6 +30,9 @@ export class SupermanPage implements OnInit {
 
   createElection(){
     this.navCtrl.navigateRoot('create-election');
+  }
+  feedWallets(){
+    this.blockchainService.feedWallets();
   }
 
   logout() {		

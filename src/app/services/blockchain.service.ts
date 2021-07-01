@@ -43,7 +43,7 @@ export class BlockchainService {
     getBalance(address: any){
       return new Promise(resolve =>{
         this.http.get(API_URL + '/get_balances'+'?address='+address,this.httpOptions).subscribe(res => {
-          //console.log(res)
+          console.log(res)
           resolve(res)
         }, err=> {
           this.toastService.dangerToast(err.error.mensaje)
@@ -100,6 +100,19 @@ export class BlockchainService {
       const body = {EleccioneId}
       return new Promise(resolve =>{
         this.http.post(API_URL+'/get_elections_statistics',body,this.httpOptions).subscribe(res =>{
+          resolve(res)
+        }, err=> {
+          this.toastService.dangerToast(err.error.mensaje)
+          console.log(err)
+        })
+      })
+    }
+    // Feed empty wallets for new elections, the empty validation is made on the backend.
+    feedWallets(){
+      const body = {};
+      return new Promise(resolve =>{
+        this.http.post(API_URL+'/feedWallets',body,this.httpOptions).subscribe(res =>{
+          console.log(res);
           resolve(res)
         }, err=> {
           this.toastService.dangerToast(err.error.mensaje)

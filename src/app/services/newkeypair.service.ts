@@ -7,11 +7,11 @@ import { API_URL } from '../../environments/environment';
   providedIn: 'root'
 })
 export class NewkeypairService {
-  httpOptions: any
+  httpOptions: any;
 
-  constructor(    
+  constructor(
     private http: HttpClient,
-    private toastService:ToastService
+    private toastService: ToastService
     ) {
       this.httpOptions = {
         headers: new HttpHeaders({

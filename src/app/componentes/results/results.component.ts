@@ -40,12 +40,19 @@ export class ResultsComponent implements OnInit {
         let labels = [];
         let total = 0;
         res['data'].forEach(element => {
-          total += element['votos'].qty;
+          if (element['votos']){
+            total += element['votos'].qty;
+          }
         });
         res['data'].forEach(element => {
-          qty.push((parseFloat(element['votos'].qty) * 100) / total);
-          labels.push(element['nombre']);
-          console.log(total);
+          if (element['votos']){
+            qty.push(((parseFloat(element['votos'].qty) * 100) / total).toFixed(1));
+            labels.push(element['nombre']);
+            // console.log(total);
+          } else {
+            qty.push(0);
+            labels.push(element['nombre']);
+          }
         });
         this.chartOptions = {
           series: [
@@ -60,6 +67,9 @@ export class ResultsComponent implements OnInit {
           },
           title: {
             text: this.electionName
+          },
+          subtitle : {
+            text: 'Cantidades en porcentaje. Total votos: ' + total
           },
           xaxis: {
             categories: labels
